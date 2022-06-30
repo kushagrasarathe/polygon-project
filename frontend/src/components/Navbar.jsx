@@ -7,10 +7,13 @@ import Link from 'next/link'
 export default function Navbar() {
   return (
     <nav className={styles.nav}>
+    <div className={styles.hamMenu}>
       <Link href={"/"}>
-        <a><Image src={logo} className={styles.logo}></Image></a>
+        <a className={styles.logo}><Image src={logo}></Image></a>
       </Link>
-      <hr className={styles.vrLine} />
+      <button className={styles.hamBtn}>&#9776;</button>
+    </div>
+      <hr className={styles.line} />
       <ul className={`${styles.navLeft} ${styles.list}`}>
         <li>
           <Link href="/explore">
@@ -27,7 +30,6 @@ export default function Navbar() {
             <a>Buidl by</a>
           </Link>
         </li>
-        
       </ul>
 
       <ul className={`${styles.navRight} ${styles.list}`}>

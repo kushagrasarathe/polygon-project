@@ -5,13 +5,6 @@ export default function Explore() {
   return (
     <div>
       <Navbar />
-      <p>kushagra</p>
-      <p>kushagra</p>
-      <p>kushagra</p>
-      <p>kushagra</p>
-      <p>kushagra</p>
-      <p>kushagra</p>
-
     </div>
   )
 }
