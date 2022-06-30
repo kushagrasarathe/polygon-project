@@ -1,0 +1,126 @@
+.App {
+    text-align: center;
+}
+
+  /* Navbar */
+  
+.list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    /* padding: 8px; */
+  }
+  
+  .nav,
+  .nav-list {
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #bec5d2;
+    font-weight: 600;
+    font-size: 1rem;
+    /* font-weight: bold; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    /* height: 10vh; */
+    justify-content: flex-start;
+  }
+  
+  .nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+  }
+  
+  .vrLine {
+    border-left: 1px solid rgb(115, 115, 115);
+    height: 35px;
+    margin-left: 20px;
+    margin-right: 0;
+  }
+  
+  .navLeft {
+    /* margin-left: auto; */
+    margin-right: auto;
+    /* padding: 0px 30px 0px 30px; */
+  }
+  
+  .navLeft > li {
+    padding: 10px 30px 10px 0px;
+    transition: 0.2s;
+  }
+
+  .navLeft > li:hover {
+    color: #96aafd;
+  }
+  
+  .navRight {
+    padding-right: 50px;
+  }
+  
+  .navRight  li {
+    padding-right: 25px;
+  }
+
+  .navRight svg:hover {
+    border: 2px solid #a3a3a3;
+    border-radius: 8px;
+  }
+  
+  .logo {
+    max-height: 2vh;
+    width: auto;
+    padding: 0px 10px 0px 50px;
+  }
+  
+
+.btnConnect {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+.btnConnect:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.btnConnect:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.btnConnect:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+  .btnConnect:hover {
+    color: #000;
+    transition: 0.2s;
+  }
