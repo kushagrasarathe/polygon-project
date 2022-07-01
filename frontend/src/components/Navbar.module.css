@@ -1,8 +1,13 @@
 .App {
   text-align: center;
+  justify-content: space-between;
 }
 
 /* Navbar */
+
+.menu {
+  display: flex;
+}
 
 .list {
   list-style: none;
@@ -13,8 +18,9 @@
 
 .nav,
 .nav-list {
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.85);
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.92);
+  /* background-color: rgba(0, 0, 0, 0.85); */
   color: #bec5d2;
   font-weight: 600;
   font-size: 1rem;
@@ -29,20 +35,21 @@
 
 .nav {
   position: sticky;
-  width: 100%;
   top: 0;
+  z-index: 1;
+  width: 100%;
 }
 
 .line {
   border: 1px solid rgb(115, 115, 115);
   height: 35px;
-  margin-left: 0px;
+  margin-left: 0;
   margin-right: 0;
 }
 
 .navLeft {
-  /* margin-left: auto; */
   margin-right: auto;
+  /* margin-left: auto; */
   /* padding: 0px 30px 0px 30px; */
 }
 
@@ -57,6 +64,7 @@
 
 .navRight {
   padding-right: 50px;
+  margin-left: auto;
 }
 
 .navRight li {
@@ -196,7 +204,26 @@
   transition: 0.2s;
 }
 
+@media screen and (max-width: 480px) {
+  .logo {
+    /* width: 100px; */
+  }
+
+  .line {
+    max-width: 300px;
+  }
+}
+
 @media screen and (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+    transition: 0.9s;
+  }
+
+  .displayMenu {
+    display: none;
+  }
+
   .hamBtn {
     visibility: visible;
     /* margin-left: 180px; */
@@ -213,13 +240,19 @@
 
   .line {
     border-top: 1px solid rgb(115, 115, 115);
-    width: 360px;
+    width: 400px;
     height: 0;
     margin: 10px;
   }
 
   .list {
     flex-direction: column;
+    /* display: none; */
+  }
+
+  .listDisplay {
+    flex-direction: column;
+    display: none;
   }
 
   .navRight {
@@ -231,5 +264,25 @@
     height: 35px;
     font-size: 16px;
     padding: 10px;
+  }
+}
+
+@media screen and (max-width: 798px) {
+  .navRight {
+    padding: 0;
+  }
+
+  .logo {
+    padding: 0;
+  }
+
+  .navLeft {
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 892px) {
+  .navRight {
+    padding: 0;
   }
 }

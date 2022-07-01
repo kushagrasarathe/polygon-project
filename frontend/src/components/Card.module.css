@@ -1,0 +1,11 @@
+.card {
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image {
+    margin: 50px;
+    max-width: 500px;
+}
