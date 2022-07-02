@@ -6,16 +6,39 @@
   flex-direction: column;
 }
 
+.grid {
+  display: flex;
+  flex-direction: column;
+  /* background-color: #2196F3; */
+  /* grid-template-columns: auto auto auto;
+  padding: 10px; */
+}
+
+.gridItem{
+  /* background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center; */
+}
+
+/* .left {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.right {
+  display: flex;
+  justify-content: flex-end;
+} */
+
 .heading {
-  /* font-family: arial; */
   display: inline-block;
   margin: 0 auto;
   font-weight: 900;
   text-transform: uppercase;
   text-align: center;
   font-size: 160px;
-  /* line-height: 120%; */
-  /* padding: 300px 0; */
   animation: background 10s linear infinite;
   background: linear-gradient(
     60deg,
@@ -49,8 +72,6 @@
   font-size: 48px;
   text-transform: uppercase;
   text-align: center;
-  /* line-height: 120%; */
-  /* padding: 300px 0; */
   animation: background 10s linear infinite;
   background: linear-gradient(
     120deg,
@@ -69,11 +90,67 @@
   background-size: 1000% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  /* position: absolute;
-  top: 35%;
-  left: 50%; */
-  /* transform: translate(-50%, -50%); */
 }
+
+.btn {
+  margin-top: 35px;
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #5adaff 0,
+    #5468ff 100%
+  );
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  /* font-family: "JetBrains Mono", monospace; */
+  height: 48px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+}
+
+.btn:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.btn:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+.btn:hover {
+  color: #000;
+  transition: 0.2s;
+}
+
 
 @keyframes background {
   0% {
