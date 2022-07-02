@@ -19,7 +19,9 @@
 .nav,
 .nav-list {
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.92);
+  background-image: radial-gradient(circle at 50% -20%, #ffffff12, #00000063);
+
+  background-color: rgba(0, 0, 0, 0.7);
   /* background-color: rgba(0, 0, 0, 0.85); */
   color: #bec5d2;
   font-weight: 600;

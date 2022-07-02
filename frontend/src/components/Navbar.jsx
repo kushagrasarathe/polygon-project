@@ -3,6 +3,7 @@ import logo from "../assets/logo.png";
 import styles from "./Navbar.module.css";
 import Image from "next/image";
 import Link from 'next/link'
+import twitter from "../assets/twitter.svg"
 
 export default function Navbar() {
 
@@ -46,8 +47,10 @@ export default function Navbar() {
 
     <ul className={`${styles.navRight} ${styles.list}`}>
         <li>
+          
           <a href="https://twitter.com/caze_xyz" target="_blank">
-            <svg
+          <Image src={twitter}/>
+            {/* <svg
               width="32"
               height="32"
               viewBox="0 0 32 32"
@@ -70,7 +73,7 @@ export default function Navbar() {
                     ></rect>
                 </clipPath>
               </defs>
-            </svg>
+            </svg> */}
           </a>
         </li>
 

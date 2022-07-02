@@ -13,7 +13,7 @@ import Footer from "../src/components/Footer";
 export default function Home() {
   return (
     <div style={{ scrollBehavior: "smooth" }}>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className={styles.main}>
         <p className={styles.subHeading}>
           <span className={styles.tagline}>Welcome To</span>
@@ -77,7 +77,8 @@ export default function Home() {
           </Hover>
         </div>
       </div>
-      <Footer />
+      {/* <hr />
+      <Footer /> */}
     </div>
   );
 }
