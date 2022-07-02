@@ -69,8 +69,8 @@
     margin: 20px;
     border-image: linear-gradient(var(--angle), #64a9f8, #d073ff, #a3e3f8) 1;
     animation: 5s rotate linear infinite;
-  } */
-  
+  } 
+   
   @keyframes rotate {
     to {
       --angle: 360deg;
@@ -80,7 +80,7 @@
     syntax: "<angle>";
     initial-value: 0deg;
     inherits: false;
-  }
+  } */
   
   /* Media Query for Mobile Devices */
   @media (max-width: 480px) {

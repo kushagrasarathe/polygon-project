@@ -1,6 +1,10 @@
 .card {
-  margin: 30px 100px;
-  text-align: start;
+  margin: 30px 30px;
+  /* margin: 30px 100px; */
+  text-align: center;
+  /* background-color: #64a9f8; */
+  /* width: 700px;
+  height: auto  ; */
 }
 
 .content {
@@ -9,6 +13,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  flex-direction: column-reverse;
   justify-content: space-between;
   box-shadow: 0 1px 15px #00000099;
   /* border-radius: 40px; */
@@ -69,7 +74,7 @@
   margin: 20px;
   border-image: linear-gradient(var(--angle), #64a9f8, #d073ff, #a3e3f8) 1;
   animation: 5s rotate linear infinite;
-} */
+} 
 
 @keyframes rotate {
   to {
@@ -80,7 +85,7 @@
   syntax: "<angle>";
   initial-value: 0deg;
   inherits: false;
-}
+} */
 
 /* Media Query for Mobile Devices */
 @media (max-width: 480px) {
@@ -149,7 +154,7 @@
 /* Media Query for Large screens */
 @media (min-width: 1281px) {
   .card {
-    text-align: start;
+    text-align: center;
   }
 
   .content {

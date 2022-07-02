@@ -18,7 +18,8 @@ export default function Navbar() {
       <button onClick={() => {
         setIsNavExpanded(!isNavExpanded)
         console.log(isNavExpanded)
-      }} className={styles.hamBtn}>&#9776;</button>
+      }} className={styles.hamBtn}>{ isNavExpanded ? "☰" : "✖"}</button>
+      {/* }} className={styles.hamBtn}>{ isNavExpanded ? "&#10006;" : ""}</button> */}
     </div>
 
       <hr className={styles.line} />

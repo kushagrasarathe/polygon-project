@@ -45,16 +45,16 @@ export default function Home() {
           </Hover>
         </div>
 
-        <div className={styles.gridItem}>
+        <div className={styles.item}>
           <Hover scale={1} perspective={900} speed={500}>
             <Card
               music={artist}
               heading={"Digital Creators"}
-              matter={"Access digital arts of creators around the world 😇"}
+              matter={"Access and collect digital arts from creators around the world 😇"}
             />
           </Hover>
         </div>
-        <div className={styles.gridItem}>
+        <div className={styles.item}>
           <Hover scale={1} perspective={900} speed={500}>
             <Card
               music={nft}
@@ -65,13 +65,13 @@ export default function Home() {
             />
           </Hover>
         </div>
-        <div className={styles.gridItem}>
+        <div className={styles.item}>
           <Hover scale={1} perspective={900} speed={500}>
             <Card
               music={creator}
               heading={"Video Creators"}
               matter={
-                "Support your favorite video creators/ and get access to special content every month 😘	"
+                "Support your favorite video creators and get access to special content every month 😘	"
               }
             />
           </Hover>

@@ -9,7 +9,7 @@ import Link from 'next/link'
 export default function Explore() {
   return (
     <div>
-      <Link href={"/"}>
+      <Link href={"/explore/kushagra"}>
         <a href="">
         <ProfileCard image={kushagra} name={'Kushagra Sarathe'} intro={'I am Kushagra Sarathe, these days I am learning to code in JavaScript'} />
         </a>
