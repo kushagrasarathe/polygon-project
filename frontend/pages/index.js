@@ -8,6 +8,7 @@ import nft from "../src/assets/nft.gif";
 import creator from "../src/assets/creator.gif";
 import artist from "../src/assets/artist.gif";
 import Hover from "react-3d-hover";
+import Footer from "../src/components/Footer";
 
 export default function Home() {
   return (
@@ -31,9 +32,9 @@ export default function Home() {
 
       {/* <hr /> */}
 
-      <div className={styles.grid}>
-        <div className={styles.gridItem}>
-          {/* <Hover scale={1} perspective={900} speed={500}> */}
+      <div className={styles.container}>
+        <div className={styles.item}>
+          <Hover scale={1} perspective={900} speed={500}>
             <Card
               music={music}
               heading={"Music Artists"}
@@ -41,20 +42,20 @@ export default function Home() {
                 "Support your favorite music creators and pay only for what you listen to 🤩 "
               }
             />
-          {/* </Hover> */}
+          </Hover>
         </div>
 
         <div className={styles.gridItem}>
-          {/* <Hover scale={1} perspective={900} speed={500}> */}
+          <Hover scale={1} perspective={900} speed={500}>
             <Card
               music={artist}
               heading={"Digital Creators"}
               matter={"Access digital arts of creators around the world 😇"}
             />
-          {/* </Hover> */}
+          </Hover>
         </div>
         <div className={styles.gridItem}>
-          {/* <Hover scale={1} perspective={900} speed={500}> */}
+          <Hover scale={1} perspective={900} speed={500}>
             <Card
               music={nft}
               heading={"NFT Artists"}
@@ -62,10 +63,10 @@ export default function Home() {
                 "Mint NFTs from your favorite projects and artists by only paying once 🫣"
               }
             />
-          {/* </Hover> */}
+          </Hover>
         </div>
         <div className={styles.gridItem}>
-          {/* <Hover scale={1} perspective={900} speed={500}> */}
+          <Hover scale={1} perspective={900} speed={500}>
             <Card
               music={creator}
               heading={"Video Creators"}
@@ -73,9 +74,10 @@ export default function Home() {
                 "Support your favorite video creators/ and get access to special content every month 😘	"
               }
             />
-          {/* </Hover> */}
+          </Hover>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

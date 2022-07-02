@@ -6,31 +6,14 @@
   flex-direction: column;
 }
 
-.grid {
+.container {
   display: flex;
   flex-direction: column;
-  /* background-color: #2196F3; */
-  /* grid-template-columns: auto auto auto;
-  padding: 10px; */
 }
 
-.gridItem{
-  /* background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
-  text-align: center; */
+.item{
+  margin: 10px;
 }
-
-/* .left {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.right {
-  display: flex;
-  justify-content: flex-end;
-} */
 
 .heading {
   display: inline-block;

@@ -5,8 +5,8 @@ import music from "../assets/music.gif";
 
 export default function Card(props) {
   return (
-    <div className={styles.card}>
-      {/* <div className={styles.gBorder}> */}
+    <div className={`${styles.card}`}>
+      <div className={`${styles.shadow}  ${styles.glow}`}>
 
       <div className={`${styles.content} ${styles.border}`}>
         <div>
@@ -16,27 +16,8 @@ export default function Card(props) {
         <a className={styles.image}>
           <Image src={props.music} alt="" />
         </a>
-      {/* </div> */}
       </div>
-      {/* <div className={styles.card}>
-          <div className={styles.content}>
-            <div className={styles.gBorder}>
-              <a className={styles.image}>
-                <Image src={props.music} alt="" />
-              </a>
-            </div>
-          </div>
-        </div> */}
-
-      {/* <div className={styles.container}>
-          <div className={`${styles.item}`}>
-            <div className={`${styles.card}`}>
-              <div className={`${styles.card__content} ${styles.gBorder}`}>
-                
-              </div>
-            </div>
-          </div>
-        </div> */}
+      </div>
     </div>
   );
 }
