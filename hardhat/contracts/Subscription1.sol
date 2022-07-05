@@ -181,11 +181,11 @@ contract SubscriptionPlan {
     /// @return _balance -Balance of the creator 
     function checkBalance(address _creator) returns(uint _balance) {
         uint balance = balances[_creator] ;
-        returns balance ;
+        return balance ;
     }
 
 
-    receive() external payable 
-    fallback() external payable 
+    receive() external payable {}
+    fallback() external payable {}
 
 }
