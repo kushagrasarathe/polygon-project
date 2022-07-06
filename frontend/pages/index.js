@@ -32,6 +32,9 @@ export default function Home() {
 
       {/* <hr /> */}
 
+    
+
+
       <div className={styles.container}>
         <div className={styles.item}>
           <Hover scale={1} perspective={900} speed={500}>

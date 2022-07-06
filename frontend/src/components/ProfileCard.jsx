@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from "./ProfileCard.module.css"
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function ProfileCard(props) {
   return (
@@ -15,6 +16,9 @@ export default function ProfileCard(props) {
           <h1 className={styles.cardHeader}>{props.name}</h1>
           <p className={styles.cardText}>{props.intro}</p>
         </div>
+        <Link href={"/explore/kushagra"}>
+        <button on>View</button>
+      </Link>
       </div>
       </div>
     </div>

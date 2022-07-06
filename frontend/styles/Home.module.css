@@ -204,3 +204,19 @@
     font-size: 28px;
   }
 }
+
+
+.explore {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profiles {
+  /* max-width: 50%; */
+}
+
+/* .stats {
+  position: fixed;
+  right: 10px;
+  max-width: 30%;
+} */

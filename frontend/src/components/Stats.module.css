@@ -1,0 +1,4 @@
+.statscard {
+    display: flex;
+    flex-wrap: wrap;
+}
