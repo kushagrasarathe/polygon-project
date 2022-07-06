@@ -1,7 +1,17 @@
 .card {
     margin: 30px 100px;
-    text-align: start;
+    text-align: center;
+    transition: .5s all ease;
+    transform: rotateX(0deg) scale(0.96);
   }
+
+  .card:hover {
+    cursor: pointer;
+    transform: rotate(0deg) scale(1);
+    transition: .5s all ease;
+    z-index: 400;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.16);
+}
   
   .content {
     margin-left: 0;
@@ -21,10 +31,12 @@
     margin-bottom: 1.5rem;
   }
   .cardText {
+    overflow: hidden;
     font-size: 1.5rem;
     letter-spacing: 0.1rem;
     line-height: 1.7;
     color: #8899a6;
+
     /* margin-bottom: 2.5rem; */
   }
   
@@ -84,6 +96,67 @@
     inherits: false;
   } */
   
+
+  .btn {
+    margin-top: 35px;
+    align-items: center;
+    appearance: none;
+    background-image: radial-gradient(
+      100% 100% at 100% 0,
+      #5adaff 0,
+      #5468ff 100%
+    );
+    border: 0;
+    border-radius: 6px;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+      rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    /* font-family: "JetBrains Mono", monospace; */
+    height: 48px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow 0.15s, transform 0.15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 18px;
+  }
+  
+  .btn:focus {
+    box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+      rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  }
+  
+  .btn:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+      rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+    transform: translateY(-2px);
+  }
+  
+  .btn:active {
+    box-shadow: #3c4fe0 0 3px 7px inset;
+    transform: translateY(2px);
+  }
+  
+  .btn:hover {
+    color: #000;
+    transition: 0.2s;
+  }
+
+
   /* Media Query for Mobile Devices */
   @media (max-width: 480px) {
     .card {
@@ -92,12 +165,23 @@
     }
   
     .content {
-      flex-direction: column-reverse;
+      flex-direction: column;
     }
   
     .image {
       max-width: 250px;
       margin: 30px;
+    }
+
+    .cardHeader {
+      font-size: 2rem;
+    }
+    .cardText {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 200px;
+      font-size: 18px;
     }
   }
   
@@ -110,12 +194,18 @@
     }
   
     .content {
-      flex-direction: column-reverse;
+      flex-direction: column;
     }
   
     .image {
       max-width: 250px;
       margin: 30px;
+    }
+    .cardText {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 350px;
     }
   }
   
@@ -132,30 +222,53 @@
     }
   
     .content {
-      flex-direction: column-reverse;
+      flex-direction: column;
     }
+
+    .cardText {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 600px;
+    }
+    
   }
   
   /* Media Query for Laptops and Desktops */
   @media (min-width: 1025px) and (max-width: 1280px) {
     .card {
       margin: 30px;
-      text-align: start;
+      text-align: center;
     }
     .image {
       max-width: 250px;
       margin: 30px;
+    }
+    
+    .cardText {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 800px;
     }
   }
   
   /* Media Query for Large screens */
   @media (min-width: 1281px) {
     .card {
-      text-align: end;
+      text-align: center;
     }
   
     .content {
       align-items: center;
     }
+
+    .cardText {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 800px;
+    }
+
   }
   

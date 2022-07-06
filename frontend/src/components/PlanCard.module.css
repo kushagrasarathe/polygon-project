@@ -4,16 +4,21 @@
   text-align: center;
   /* background-color: #64a9f8; */
   /* width: 700px;
-  height: auto  ; */
+    height: auto  ; */
 }
 
 .content {
+  width: 300px;
+  height: 550px;
   margin-left: 0;
   padding: 30px;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  flex-direction: column-reverse;
+  align-content: flex-start;
+  align-items: flex-start;
+  /* justify-items: self-start; */
+  justify-content: center;
+  /* flex-direction: column-reverse; */
   justify-content: space-between;
   box-shadow: 0 1px 15px #00000099;
   /* border-radius: 40px; */
@@ -36,7 +41,7 @@
 .card .glow {
   position: relative;
   /* width: 100%;
-  height: 100%; */
+    height: 100%; */
   left: 0;
   top: 0;
   background-image: radial-gradient(circle at 50% -20%, #ffffff08, #00000063);
@@ -62,28 +67,28 @@
 
   /* box-shadow: 0 1px 5px linear-gradient(to top left, #f8acff -5%, #696eff 100% ); */
   /* -webkit-box-shadow: 18px 18px 4px -4px rgba(58, 235, 255, 0.75);
-  -moz-box-shadow: 18px 18px 4px -4px rgba(58, 235, 255, 0.75);
-  box-shadow: 8px 8px 4px -4px rgba(116, 179, 255, 0.75); */
+    -moz-box-shadow: 18px 18px 4px -4px rgba(58, 235, 255, 0.75);
+    box-shadow: 8px 8px 4px -4px rgba(116, 179, 255, 0.75); */
 }
 
 /* .border {
-  --angle: 0deg;
-  border: 3px solid;
-  margin: 20px;
-  border-image: linear-gradient(var(--angle), #64a9f8, #d073ff, #a3e3f8) 1;
-  animation: 5s rotate linear infinite;
-} 
-
-@keyframes rotate {
-  to {
-    --angle: 360deg;
+    --angle: 0deg;
+    border: 3px solid;
+    margin: 20px;
+    border-image: linear-gradient(var(--angle), #64a9f8, #d073ff, #a3e3f8) 1;
+    animation: 5s rotate linear infinite;
+  } 
+  
+  @keyframes rotate {
+    to {
+      --angle: 360deg;
+    }
   }
-}
-@property --angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-} */
+  @property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  } */
 
 /* Media Query for Mobile Devices */
 @media (max-width: 480px) {

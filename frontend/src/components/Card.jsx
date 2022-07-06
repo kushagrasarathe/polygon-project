@@ -14,7 +14,7 @@ export default function Card(props) {
           <p className={styles.cardText}>{props.matter}</p>
         </div>
         <a className={styles.image}>
-          <Image src={props.music} alt="" />
+          <Image src={props.img} alt="" />
         </a>
       </div>
       </div>

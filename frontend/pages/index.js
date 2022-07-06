@@ -9,6 +9,7 @@ import creator from "../src/assets/creator.gif";
 import artist from "../src/assets/artist.gif";
 import Hover from "react-3d-hover";
 import Footer from "../src/components/Footer";
+import PlanCard from "../src/components/PlanCard";
 
 export default function Home() {
   return (
@@ -31,15 +32,17 @@ export default function Home() {
       </div>
 
       {/* <hr /> */}
-
-    
-
+      <br />
+      <div className={styles.subHead}>
+        <h1 className={styles.subTitle}>Explore among categories</h1>
+      </div>
+      <br />
 
       <div className={styles.container}>
         <div className={styles.item}>
           <Hover scale={1} perspective={900} speed={500}>
             <Card
-              music={music}
+              img={music}
               heading={"Music Artists"}
               matter={
                 "Support your favorite music creators and pay only for what you listen to 🤩 "
@@ -51,16 +54,18 @@ export default function Home() {
         <div className={styles.item}>
           <Hover scale={1} perspective={900} speed={500}>
             <Card
-              music={artist}
+              img={artist}
               heading={"Digital Creators"}
-              matter={"Access and collect digital arts from creators around the world 😇"}
+              matter={
+                "Access and collect digital arts from creators around the world 😇"
+              }
             />
           </Hover>
         </div>
         <div className={styles.item}>
           <Hover scale={1} perspective={900} speed={500}>
             <Card
-              music={nft}
+              img={nft}
               heading={"NFT Artists"}
               matter={
                 "Mint NFTs from your favorite projects and artists by only paying once 🫣"
@@ -71,13 +76,40 @@ export default function Home() {
         <div className={styles.item}>
           <Hover scale={1} perspective={900} speed={500}>
             <Card
-              music={creator}
+              img={creator}
               heading={"Video Creators"}
               matter={
                 "Support your favorite video creators and get access to special content every month 😘	"
               }
             />
           </Hover>
+        </div>
+      </div>
+
+      <br />
+      <br />
+      <div className={styles.subHead}>
+        <h1 className={styles.subTitle}>Choose across various plans</h1>
+      </div>
+      <br />
+      <div className={styles.container}>
+        <div>
+        <Hover scale={1} perspective={900} speed={500}>
+
+          <PlanCard  month={'Supasaer Supporter'} />
+        </Hover>
+        </div>
+        <div>
+        <Hover scale={1} perspective={900} speed={500}>
+
+          <PlanCard  month={'Sr Supporter'} />
+        </Hover>
+        </div>
+        <div>
+        <Hover scale={1} perspective={900} speed={500}>
+
+          <PlanCard  month={'Super Supporter'} />
+        </Hover>
         </div>
       </div>
       {/* <hr />
