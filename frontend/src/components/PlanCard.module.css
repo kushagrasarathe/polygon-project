@@ -1,5 +1,5 @@
 .card {
-  margin: 30px 30px;
+  margin: 30px 30px 80px 30px;
   /* margin: 30px 100px; */
   text-align: center;
   /* background-color: #64a9f8; */
@@ -19,7 +19,7 @@
   /* justify-items: self-start; */
   justify-content: center;
   /* flex-direction: column-reverse; */
-  justify-content: space-between;
+  justify-content: center;
   box-shadow: 0 1px 15px #00000099;
   /* border-radius: 40px; */
 }
@@ -54,56 +54,26 @@
   transform: rotateZ(0deg) rotateY(0deg) rotateX(0deg) scale(1);
 }
 
-.image {
-  max-width: 350px;
-}
-
 .shadow {
   display: block;
   padding: 20px;
   border-radius: 20px;
   /* box-shadow: 0 1px 5px #6c6fd6;  */
   box-shadow: 0px 0px 3px 2px #64a9f8;
-
-  /* box-shadow: 0 1px 5px linear-gradient(to top left, #f8acff -5%, #696eff 100% ); */
-  /* -webkit-box-shadow: 18px 18px 4px -4px rgba(58, 235, 255, 0.75);
-    -moz-box-shadow: 18px 18px 4px -4px rgba(58, 235, 255, 0.75);
-    box-shadow: 8px 8px 4px -4px rgba(116, 179, 255, 0.75); */
 }
 
-/* .border {
-    --angle: 0deg;
-    border: 3px solid;
-    margin: 20px;
-    border-image: linear-gradient(var(--angle), #64a9f8, #d073ff, #a3e3f8) 1;
-    animation: 5s rotate linear infinite;
-  } 
-  
-  @keyframes rotate {
-    to {
-      --angle: 360deg;
-    }
-  }
-  @property --angle {
-    syntax: "<angle>";
-    initial-value: 0deg;
-    inherits: false;
-  } */
+.pricingImg {
+  margin: 10px auto;
+  max-width: 80px;
+  height: auto;
+}
+
 
 /* Media Query for Mobile Devices */
 @media (max-width: 480px) {
   .card {
     margin: 30px;
     text-align: center;
-  }
-
-  .content {
-    flex-direction: column-reverse;
-  }
-
-  .image {
-    max-width: 250px;
-    margin: 30px;
   }
 }
 
@@ -114,15 +84,6 @@
     margin: 30px;
     text-align: center;
   }
-
-  .content {
-    flex-direction: column-reverse;
-  }
-
-  .image {
-    max-width: 250px;
-    margin: 30px;
-  }
 }
 
 /* Media Query for Tablets Ipads portrait mode */
@@ -130,15 +91,6 @@
   .card {
     margin: 30px;
     text-align: center;
-  }
-
-  .image {
-    max-width: 250px;
-    margin: 30px;
-  }
-
-  .content {
-    flex-direction: column-reverse;
   }
 }
 
@@ -148,9 +100,8 @@
     margin: 30px;
     text-align: center;
   }
-  .image {
-    max-width: 250px;
-    margin: 30px;
+  .content {
+    align-items: center;
   }
 }
 

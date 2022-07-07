@@ -4,6 +4,7 @@ import styles from "./Navbar.module.css";
 import Image from "next/image";
 import Link from 'next/link'
 import twitter from "../assets/twitter.svg"
+import Button from "./Button";
 
 export default function Navbar() {
 
@@ -77,6 +78,7 @@ export default function Navbar() {
             </svg> */}
           </a>
         </li>
+        {/* <Button title={'Explore'}/> */}
 
         <button className={styles.btnConnect} role="button">
           Connect Wallet

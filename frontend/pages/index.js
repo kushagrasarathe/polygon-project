@@ -7,9 +7,13 @@ import music from "../src/assets/music.gif";
 import nft from "../src/assets/nft.gif";
 import creator from "../src/assets/creator.gif";
 import artist from "../src/assets/artist.gif";
+import paperplane from "../src/assets/paper-plane.png";
+import spaceship from "../src/assets/space-ship.png";
+import plane from "../src/assets/plane.png";
 import Hover from "react-3d-hover";
 import Footer from "../src/components/Footer";
 import PlanCard from "../src/components/PlanCard";
+import Button from "../src/components/Button";
 
 export default function Home() {
   return (
@@ -26,9 +30,7 @@ export default function Home() {
             content
           </span>
         </p>
-        <button className={styles.btn} role="button">
-          Explore
-        </button>
+        <Button title={'Explore'}/>
       </div>
 
       {/* <hr /> */}
@@ -89,27 +91,24 @@ export default function Home() {
       <br />
       <br />
       <div className={styles.subHead}>
-        <h1 className={styles.subTitle}>Choose across various plans</h1>
+        <h1 className={styles.subTitle}>Choose across plans</h1>
       </div>
       <br />
       <div className={styles.container}>
         <div>
-        <Hover scale={1} perspective={900} speed={500}>
-
-          <PlanCard  month={'Supasaer Supporter'} />
-        </Hover>
+          <Hover scale={1} perspective={900} speed={500}>
+            <PlanCard month={"1 Month"} name={'Basic'} amount={'$10'} img={paperplane} />
+          </Hover>
         </div>
         <div>
-        <Hover scale={1} perspective={900} speed={500}>
-
-          <PlanCard  month={'Sr Supporter'} />
-        </Hover>
+          <Hover scale={1} perspective={900} speed={500}>
+            <PlanCard month={"3 Months"} name={'Premium'} amount={'$25'} img={spaceship} />
+          </Hover>
         </div>
         <div>
-        <Hover scale={1} perspective={900} speed={500}>
-
-          <PlanCard  month={'Super Supporter'} />
-        </Hover>
+          <Hover scale={1} perspective={900} speed={500}>
+            <PlanCard month={"6 Months"} name={'Exclusive'} amount={'$50'} img={plane} />
+          </Hover>
         </div>
       </div>
       {/* <hr />
