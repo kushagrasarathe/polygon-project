@@ -82,7 +82,9 @@
   background: blue;
 }
 
-.cardHeader {
+.heading {
+  margin-top: 25px;
+  padding: 10px;
   font-size: 2.5rem;
   font-weight: 600;
   color: #fff;
@@ -117,6 +119,10 @@
   /* flex-direction: column; */
 }
 
+.item {
+  max-width: 350px;
+  margin: 10px;
+}
 
 @media (max-width: 480px) {
 
