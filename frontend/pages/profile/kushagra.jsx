@@ -36,18 +36,18 @@ export default function Kushagra() {
       <h1 className={styles.heading}>Content</h1>
 
       <div className={styles.container}>
-        <div className={styles.item}>
+        <div className={`${styles.item} ${styles.border}`}>
           <Image src={profile} />
         </div>
-        <div className={styles.item}>
-          <Image src={profile} />
+        <div className={`${styles.item} ${styles.border}`}>
+          <Image src={banner} />
         </div>
-        <div className={styles.item}>
+        <div className={`${styles.item} ${styles.border}`}>
           <Image src={profile} />
         </div>
       </div>
 
-      <h1 className={styles.heading}>Choose Plan</h1>
+      <h1 className={styles.heading}>Subscribe</h1>
 
       <div className={styles.container}>
         <div>

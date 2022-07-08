@@ -14,7 +14,7 @@ export default function ProfileCard(props) {
           <div>
             <h1 className={styles.cardHeader}>{props.name}</h1>
             <p className={styles.cardText}>{props.intro}</p>
-          <Link href={"/explore/kushagra"}>
+          <Link href={"/profile/kushagra"}>
             <button className={styles.btn}>Read More...</button>
           </Link>
           </div>

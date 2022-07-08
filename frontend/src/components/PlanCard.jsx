@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./PlanCard.module.css";
 import Image from "next/image";
+import Button from '../components/Button'
 
 export default function PlanCard(props) {
   return (
@@ -25,6 +26,7 @@ export default function PlanCard(props) {
               <p className={styles.cardText}>Caze Token</p>
               <p className={styles.cardText}>Free Mint</p>
             </div>
+            <Button title={'Subscribe'} />
           </div>
         </div>
       </div>
