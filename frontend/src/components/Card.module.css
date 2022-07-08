@@ -19,6 +19,14 @@
   /* border-radius: 40px; */
 }
 
+.content:hover {
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.5s all ease;
+  transform: rotateZ(0deg) rotateY(0deg) rotateX(0deg) scale(1);
+}
+
+
 .cardHeader {
   font-size: 2.5rem;
   font-weight: 600;
@@ -42,12 +50,6 @@
   background-image: radial-gradient(circle at 50% -20%, #ffffff08, #00000063);
 }
 
-.content:hover {
-  overflow: hidden;
-  cursor: pointer;
-  transition: 0.5s all ease;
-  transform: rotateZ(0deg) rotateY(0deg) rotateX(0deg) scale(1);
-}
 
 .image {
   max-width: 350px;

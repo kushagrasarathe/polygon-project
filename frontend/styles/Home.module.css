@@ -229,13 +229,67 @@
 
 /* register page */
 
+.center {
+  text-align: center;
+}
+
+.rHead {
+  display: inline-block;
+  margin-top: 30px;
+  /* margin-bottom: 0; */
+  font-weight: 700;
+  font-size: 48px;
+  text-transform: uppercase;
+  text-align: center;
+  animation: background 10s linear infinite;
+  background: linear-gradient(
+    120deg,
+    rgb(255, 196, 186) 0%,
+    rgb(255, 169, 154) 10%,
+    rgba(78, 170, 76, 1) 20%,
+    rgba(82, 175, 183, 1) 30%,
+    rgb(100, 203, 221) 40%,
+    rgb(255, 118, 221) 50%,
+    rgb(127, 129, 231) 60%,
+    rgb(88, 200, 204) 70%,
+    #96aafd 80%,
+    rgba(199, 201, 88, 1) 90%,
+    rgba(199, 201, 88, 1) 100%
+  );
+  background-size: 1000% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .register {
-  margin: 30px;
+  max-width: 1200px;
+  margin: 30px auto;
   display: flex;
   flex-direction: column;
+  background-image: radial-gradient(circle at 50% -20%, #ffffff07, #00000063);
+  box-shadow: 0 1px 15px #00000099;
+  border-radius: 20px;
+  border-left: 3px solid #5adaff;
+  border-right: 3px solid #5adaff;
+  /* border-bottom: 3px solid #5adaff; */
+  
+}
+
+.register:hover {
+  /* overflow: hidden; */
+  transition: 0.5s all ease;
+  /* transform: rotateZ(0deg) rotateY(0deg) rotateX(0deg) scale(1.005); */
+}
+
+.submitBtn {
+  position: relative;
+  bottom: 30px;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 .form {
+  margin: 0;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -244,15 +298,18 @@
 /* style="background-color: rgba(255, 255, 255, 0.65)" class="hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 text-sm border border-gray-300 rounded-lg shadow-sm" */
 
 .profile {
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 50px;
   margin: 15px 0 0 0;
   border-radius: 10px;
-  border: 3px solid rgb(127, 129, 231);
+  border: 2px solid rgb(148, 228, 255);
+  box-shadow: 5px 7px #91c1ff;
 }
-.left {
+
+.top {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -260,7 +317,18 @@
   margin: 20px;
 }
 
+.left {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
 .right {
+  padding: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -269,12 +337,11 @@
 }
 
 .label {
-  margin: 15px 0 0 0;
+  margin: 25px 0 10px 0;
   /* margin-right: auto; */
-  
 }
 
-.text {
+.textField {
   margin: 15px 0 0 0;
   background: rgb(230, 240, 255);
   min-width: 360px;
@@ -282,26 +349,54 @@
   font-size: 18px;
   padding: 20px;
   border-radius: 10px;
+  box-shadow: 5px 7px #91c1ff;
 }
 
 .about {
   margin: 15px 0 0 0;
-  width: 400px;
+  width: 450px;
   min-height: 100px;
   background: rgb(230, 240, 255);
   border-radius: 10px;
   padding: 10px;
   font-size: 18px;
+  box-shadow: 5px 7px #91c1ff;
 }
 
-
 /* drag drop section */
-.dragDrop {
+.dragDrop,
+.dragArea {
+  cursor: pointer;
   margin-top: 15px;
+  width: 450px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.dragArea {
+  border: 2px solid rgb(148, 228, 255);
+  padding: 30px 20px;
+  border-radius: 10px;
+  box-shadow: 5px 7px #91c1ff;
+}
+
+.textField:focus,
+.about:focus {
+  box-shadow: 7px 10px #91c1ff;
+}
+
+.dragArea:hover,
+.profile:hover {
+  box-shadow: 7px 12px #91c1ff;
+}
+
+.dragDrop p {
+  font-size: 16px;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 10px;
 }
 
 @media screen and (max-width: 480px) {
