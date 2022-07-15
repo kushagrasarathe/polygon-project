@@ -1,0 +1,291 @@
+.App {
+  text-align: center;
+  justify-content: space-between;
+}
+
+/* Navbar */
+
+.menu {
+  display: flex;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  /* padding: 8px; */
+}
+
+.nav,
+.nav-list {
+  padding: 20px;
+  background-image: radial-gradient(circle at 50% -20%, #ffffff12, #00000063);
+
+  background-color: rgba(0, 0, 0, 0.7);
+  /* background-color: rgba(0, 0, 0, 0.85); */
+  color: #bec5d2;
+  font-weight: 600;
+  font-size: 1rem;
+  /* font-weight: bold; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  /* height: 10vh; */
+  justify-content: flex-start;
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+}
+
+.line {
+  border: 1px solid rgb(115, 115, 115);
+  height: 35px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.navLeft {
+  margin-right: auto;
+  /* margin-left: auto; */
+  /* padding: 0px 30px 0px 30px; */
+}
+
+.navLeft > li {
+  padding: 10px 30px 10px 0px;
+  transition: 0.2s;
+}
+
+.navLeft a:hover {
+  color: #96aafd;
+}
+
+.navRight {
+  padding-right: 50px;
+  margin-left: auto;
+}
+
+.navRight li {
+  padding-right: 25px;
+}
+
+.navRight svg:hover {
+  border: 2px solid #a3a3a3;
+  border-radius: 8px;
+}
+
+.logo {
+  /* max-height: 2vh; */
+  max-width: 150px;
+  height: auto;
+  margin: 0;
+  padding: 0px 10px 0px 30px;
+}
+
+.hamMenu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hamBtn {
+  margin-left: 10px;
+  visibility: collapse;
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #5adaff 0,
+    #5468ff 100%
+  );
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono", monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 16px;
+}
+
+.hamBtn:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.hamBtn:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.hamBtn:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+.hamBtn:hover {
+  color: #000;
+  transition: 0.2s;
+}
+
+.btnConnect {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #5adaff 0,
+    #5468ff 100%
+  );
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono", monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+}
+
+.btnConnect:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.btnConnect:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.btnConnect:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+.btnConnect:hover {
+  color: #000;
+  transition: 0.2s;
+}
+
+@media screen and (max-width: 480px) {
+  .logo {
+    /* width: 100px; */
+  }
+
+  .line {
+    max-width: 300px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+    transition: 0.9s;
+  }
+
+  .displayMenu {
+    display: none;
+  }
+
+  .hamBtn {
+    visibility: visible;
+    /* margin-left: 180px; */
+  }
+
+  .nav {
+    flex-direction: column;
+  }
+
+  .navLeft {
+    align-items: center;
+    margin: auto;
+  }
+
+  .line {
+    border-top: 1px solid rgb(115, 115, 115);
+    width: 400px;
+    height: 0;
+    margin: 10px;
+  }
+
+  .list {
+    flex-direction: column;
+    /* display: none; */
+  }
+
+  .listDisplay {
+    flex-direction: column;
+    display: none;
+  }
+
+  .navRight {
+    margin: 10px;
+    flex-direction: row;
+  }
+
+  .btnConnect {
+    height: 35px;
+    font-size: 16px;
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 798px) {
+  .navRight {
+    padding: 0;
+  }
+
+  .logo {
+    padding: 0;
+  }
+
+  .navLeft {
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 892px) {
+  .navRight {
+    padding: 0;
+  }
+}

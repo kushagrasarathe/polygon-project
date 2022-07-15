@@ -1,0 +1,25 @@
+.footer{
+    background-image: radial-gradient(circle at 50% -20%, #ffffff12, #00000063);
+
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.footer div {
+    position: sticky;
+    z-index: 1;
+    margin: 0;
+    padding: 15px;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+/* .footer div {
+} */
+
+.footer * {
+    display: flex;
+    padding: 10px;
+}
