@@ -1,57 +1,65 @@
 import React, { useState } from "react";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.svg";
 import styles from "./Navbar.module.css";
 import Image from "next/image";
-import Link from 'next/link'
-import twitter from "../assets/twitter.svg"
+import Link from "next/link";
+import twitter from "../assets/twitter.svg";
 import Button from "./Button";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export default function Navbar() {
-
-    const [isNavExpanded, setIsNavExpanded] = useState(false)
+  const [isNavExpanded, setIsNavExpanded] = useState(false);
 
   return (
     <nav className={styles.nav}>
-    <div className={styles.hamMenu}>
-      <Link href={"/"}>
-        <a className={styles.logo}><Image src={logo}></Image></a>
-      </Link>
-      <button onClick={() => {
-        setIsNavExpanded(!isNavExpanded)
-        console.log(isNavExpanded)
-      }} className={styles.hamBtn}>{ isNavExpanded ? "☰" : "✖"}</button>
-      {/* }} className={styles.hamBtn}>{ isNavExpanded ? "&#10006;" : ""}</button> */}
-    </div>
+      <div className={styles.hamMenu}>
+        <Link href={"/"}>
+          <a className={styles.logo}>
+            <Image src={logo}></Image>
+          </a>
+        </Link>
+        <button
+          onClick={() => {
+            setIsNavExpanded(!isNavExpanded);
+            console.log(isNavExpanded);
+          }}
+          className={styles.hamBtn}
+        >
+          {isNavExpanded ? "☰" : "✖"}
+        </button>
+        {/* }} className={styles.hamBtn}>{ isNavExpanded ? "&#10006;" : ""}</button> */}
+      </div>
 
       <hr className={styles.line} />
-    <div className={` ${styles.menu} ${ isNavExpanded ? styles.displayMenu : "list"}`}>
-      <ul className={`${styles.navLeft} ${styles.list}`}>
-        <li>
-          <Link href="/explore">
-            <a>Explore</a>
-          </Link>
+      <div
+        className={` ${styles.menu} ${
+          isNavExpanded ? styles.displayMenu : "list"
+        }`}
+      >
+        <ul className={`${styles.navLeft} ${styles.list}`}>
+          <li>
+            <Link href="/explore">
+              <a>Explore</a>
+            </Link>
           </li>
           <li>
-          <Link href="/register">
-            <a>Register</a>
-          </Link>
+            <Link href="/register">
+              <a>Register</a>
+            </Link>
           </li>
           <li>
-          <Link href="/team">
-            <a>Buidl by</a>
-          </Link>
-        </li>
-      </ul>
+            <Link href="/team">
+              <a>Buidl by</a>
+            </Link>
+          </li>
+        </ul>
+      </div>
+      {/* <hr className={styles.line} /> */}
 
-      
-    </div>
-    {/* <hr className={styles.line} /> */}
-
-    <ul className={`${styles.navRight} ${styles.list}`}>
+      <ul className={`${styles.navRight} ${styles.list}`}>
         <li>
-          
           <a href="https://twitter.com/caze_xyz" target="_blank">
-          <Image src={twitter}/>
+            <Image src={twitter} />
             {/* <svg
               width="32"
               height="32"
@@ -81,7 +89,7 @@ export default function Navbar() {
         {/* <Button title={'Explore'}/> */}
 
         <button className={styles.btnConnect} role="button">
-          Connect Wallet
+          <ConnectButton />
         </button>
       </ul>
     </nav>

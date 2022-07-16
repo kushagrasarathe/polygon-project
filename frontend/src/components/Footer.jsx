@@ -9,7 +9,10 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div>
         <span>© Copyright 2022 @ CAZE</span>
-        <a href="https://github.com/shouryam-kumar/hackathon-project" target="_blank">
+        <a
+          href="https://github.com/shouryam-kumar/hackathon-project"
+          target="_blank"
+        >
           <Image src={github} />
         </a>
         <a href="https://twitter.com/caze_xyz" target="_blank">
