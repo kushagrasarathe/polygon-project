@@ -1,3 +1,9 @@
+Images
 Content added with CID: bafybeiefzb7yjjzk5mpanydrdpi4zmzibm4l7dpmtmuhxllv2zozujnzkq
 
 ipfs://bafybeiefzb7yjjzk5mpanydrdpi4zmzibm4l7dpmtmuhxllv2zozujnzkq/images/
+
+Metadata
+Content added with CID: bafybeiah2x2zvenc3ecpiygbl3bvoe5tpxhsxobzz4xyrutdlemnukg6uu
+
+ipfs://bafybeiah2x2zvenc3ecpiygbl3bvoe5tpxhsxobzz4xyrutdlemnukg6uu/metadata/

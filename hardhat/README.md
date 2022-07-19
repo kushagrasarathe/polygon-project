@@ -1,3 +1,6 @@
+NFT contract deployed to: 0xfAB685ca8e509c4673d0704807bC3206c1a209d1
+Subscription deployed to: 0x72ad7812D043932f0D08cb15d2fc2A2B7233dfa4
+
 # Advanced Sample Hardhat Project
 
 This project demonstrates an advanced Hardhat use case, integrating other tools commonly used alongside Hardhat in the ecosystem.

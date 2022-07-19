@@ -1,8 +1,11 @@
 const hre = require("hardhat");
 
 async function main() {
-  const NFT = await hre.ethers.getContractFactory("NFT");
-  const nft = await NFT.deploy();
+  const metadata =
+    "ipfs://bafybeiah2x2zvenc3ecpiygbl3bvoe5tpxhsxobzz4xyrutdlemnukg6uu/metadata/";
+
+  const NFT = await hre.ethers.getContractFactory("CrazeNFT");
+  const nft = await NFT.deploy(metadata);
 
   await nft.deployed();
 

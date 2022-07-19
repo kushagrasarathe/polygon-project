@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.10;
+pragma solidity ^0.8.4;
 
 // - A Subscription service is started
 // -  Payment can be deducted after a period of 30 days , and anyone can trigger it
@@ -40,6 +40,8 @@ contract SubscriptionPlan {
     /// intialize a subscriptions for a creator
     /// mapping from user address-->creator address--> Subscription taken
     mapping(address => mapping(address => Subscription)) public subscriptions;
+
+    // mapping(address => Plan) public planWithId;
 
     /// mapping from creator --> planID --> Plan
     mapping(address => mapping(uint256 => Plan)) public plans;
@@ -103,16 +105,16 @@ contract SubscriptionPlan {
         uint256 id,
         uint256 planAmount,
         uint256 frequency
-    ) public onlyOwner onlyCreator(id) onlyOwner onlyCreator {
+    ) public onlyOwner onlyCreator(id) {
         require(planAmount > 0, "The amount for the plan should be > 0 ");
         require(frequency > 0, "Time peroid should be > 0");
-        plans[planId] = Plan(creators[id], planAmount, frequency);
+        plans[msg.sender][planId] = Plan(creators[id], planAmount, frequency);
     }
 
     /// @dev to subscribe for the plan
     /// @param _creator -  address of the creator to be subscribed for
     /// @param _planId - Plan to be subscribed
-    function subscribe(address _creator, uint256 _planId) external {
+    function subscribe(address _creator, uint256 _planId) external payable {
         Plan memory _plan = plans[_creator][_planId];
         uint256 amount = _plan.amount;
         uint256 _frequency = _plan.frequency;
@@ -120,11 +122,11 @@ contract SubscriptionPlan {
         // contract recieved the amount
         balances[_creator] += amount;
         emit paymentSent(msg.sender, _creator, amount, block.timestamp);
-        subscriptions[msg.sender] = Subscription(
+        subscriptions[msg.sender][_creator] = Subscription(
             msg.sender,
             _planId,
             block.timestamp,
-            block.timestamp + 30 days
+            block.timestamp + _frequency
         );
         /// will mint the NFT right after the adding to subscriptions list
         nft.mint(msg.sender, _planId);
@@ -134,7 +136,7 @@ contract SubscriptionPlan {
     /// @dev to cancel the subscription plan
     /// @param _creator -  address of the creator for which the plan is to be cancelled
     /// @param _planId - Id of the plan to be cancelled
-    function cancel(address _creator, address _planId) external {
+    function cancel(address _creator, uint256 _planId) external {
         Subscription storage subscription = subscriptions[msg.sender][_creator];
         require(
             subscription.subscriber != address(0),
@@ -153,8 +155,8 @@ contract SubscriptionPlan {
     function pay(
         address subscriber,
         address _creator,
-        address _planId
-    ) external {
+        uint256 _planId
+    ) external payable {
         Subscription storage subscription = subscriptions[subscriber][_creator];
         require(
             subscription.subscriber != address(0),
@@ -193,6 +195,7 @@ contract SubscriptionPlan {
     /// @return Plan -  the specfic plan for a plan ID
     function getPlans(uint256 _planId, address _owner)
         public
+        view
         returns (Plan memory)
     {
         Plan memory _plan = plans[_owner][_planId];
@@ -202,7 +205,11 @@ contract SubscriptionPlan {
     /// @dev - Function to check the balance for the creator
     /// @param _creator - Address of the creator for which balance is to be fetched
     /// @return _balance -Balance of the creator
-    function checkBalance(address _creator) public returns (uint256 _balance) {
+    function checkBalance(address _creator)
+        public
+        view
+        returns (uint256 _balance)
+    {
         uint256 balance = balances[_creator];
         return balance;
     }
@@ -210,6 +217,7 @@ contract SubscriptionPlan {
     /// returns the susbcriptions taken by a user according to the creator they have subscribed
     function getSubscriptions(address user, address creator)
         public
+        view
         returns (Subscription memory)
     {
         Subscription memory subscriptionsDone = subscriptions[user][creator];

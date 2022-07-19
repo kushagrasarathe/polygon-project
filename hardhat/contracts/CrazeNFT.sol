@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.10;
+pragma solidity ^0.8.4;
 
 import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/utils/Strings.sol";
 
 /// ERC1155 contract for the NFT for the subscription
 
-contract NFT is ERC1155Supply, Ownable {
+contract CrazeNFT is ERC1155Supply, Ownable {
     // _paused is used to pause the contract in case of an emergency
     // 0 --> Silver NFT
     // 1 --> Gold NFT
@@ -44,7 +44,9 @@ contract NFT is ERC1155Supply, Ownable {
         string memory baseURI = _baseTokenURI;
         return
             bytes(baseURI).length > 0
-                ? string(abi.encodePacked(baseURI, tokenId.toString(), ".json"))
+                ? string(
+                    abi.encodePacked(baseURI, _tokenId.toString(), ".json")
+                )
                 : "";
     }
 
