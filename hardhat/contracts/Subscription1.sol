@@ -100,15 +100,16 @@ contract SubscriptionPlan {
     }
 
     /// @dev - to create plans
-    /// @param id - id of the creator
+    /// @param id - id of the Plan created by the Owner , and only they can add a new plan
     function createPlan(
         uint256 id,
         uint256 planAmount,
-        uint256 frequency
-    ) public onlyOwner onlyCreator(id) {
+        uint256 frequency,
+        address _creator
+    ) public onlyOwner {
         require(planAmount > 0, "The amount for the plan should be > 0 ");
         require(frequency > 0, "Time peroid should be > 0");
-        plans[msg.sender][planId] = Plan(creators[id], planAmount, frequency);
+        plans[msg.sender][id] = Plan(_creator, planAmount, frequency);
     }
 
     /// @dev to subscribe for the plan
