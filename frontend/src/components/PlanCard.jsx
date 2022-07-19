@@ -1,8 +1,7 @@
 import React from "react";
 import styles from "./PlanCard.module.css";
 import Image from "next/image";
-import Button from '../components/Button'
-
+import Button from "../components/Button";
 export default function PlanCard(props) {
   return (
     <div className={`${styles.card}`}>
@@ -11,7 +10,7 @@ export default function PlanCard(props) {
           <div>
             <p className={styles.cardHeader}>{props.name}</p>
             <div className={styles.pricingImg}>
-              <Image  src={props.img} alt="" />
+              <Image src={props.img} alt="" />
             </div>
             <h1 className={styles.cardText}>{props.month}</h1>
             <p className={styles.cardText}>{props.amount}</p>
@@ -26,7 +25,7 @@ export default function PlanCard(props) {
               <p className={styles.cardText}>Caze Token</p>
               <p className={styles.cardText}>Free Mint</p>
             </div>
-            <Button title={'Subscribe'} />
+            <Button title={"Subscribe"} />
           </div>
         </div>
       </div>

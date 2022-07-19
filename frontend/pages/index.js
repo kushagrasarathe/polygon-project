@@ -30,7 +30,7 @@ export default function Home() {
             content
           </span>
         </p>
-        <Button title={'Explore'}/>
+        <Button title={"Explore"} />
       </div>
 
       {/* <hr /> */}
@@ -97,17 +97,32 @@ export default function Home() {
       <div className={styles.container}>
         <div>
           <Hover scale={1} perspective={900} speed={500}>
-            <PlanCard month={"1 Month"} name={'Basic'} amount={'$10'} img={paperplane} />
+            <PlanCard
+              month={"1 Month"}
+              name={"Basic"}
+              amount={"0.2"}
+              img={paperplane}
+            />
           </Hover>
         </div>
         <div>
           <Hover scale={1} perspective={900} speed={500}>
-            <PlanCard month={"3 Months"} name={'Premium'} amount={'$25'} img={spaceship} />
+            <PlanCard
+              month={"3 Months"}
+              name={"Premium"}
+              amount={"0.5"}
+              img={spaceship}
+            />
           </Hover>
         </div>
         <div>
           <Hover scale={1} perspective={900} speed={500}>
-            <PlanCard month={"6 Months"} name={'Exclusive'} amount={'$50'} img={plane} />
+            <PlanCard
+              month={"6 Months"}
+              name={"Exclusive"}
+              amount={"1"}
+              img={plane}
+            />
           </Hover>
         </div>
       </div>

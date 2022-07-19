@@ -1,3 +1,21 @@
+export const SilverPLan = {
+  planId: 0,
+  Amount: 0.2,
+  frequency: 30,
+};
+
+export const GoldPLan = {
+  planId: 1,
+  Amount: 0.5,
+  frequency: 90,
+};
+
+export const PlatinumPLan = {
+  planId: 2,
+  Amount: 1,
+  frequency: 120,
+};
+
 export const Subscription_Contract_Address =
   "0x92ce05f2f354f6a047a9202F60A1F61311c04169";
 export const Subscription_Contract_ABI = [
