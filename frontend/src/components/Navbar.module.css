@@ -59,7 +59,7 @@
   padding: 10px 30px 10px 0px;
   transition: 0.2s;
   font-weight: 600;
-  font-size: 18px;
+  /* font-size: 18px; */
 }
 
 .navLeft a:hover {
