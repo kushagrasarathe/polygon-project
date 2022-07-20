@@ -1,7 +1,5 @@
-import Head from "next/head";
 import Image from "next/image";
 import Card from "../src/components/Card";
-import Navbar from "../src/components/Navbar";
 import styles from "../styles/Home.module.css";
 import music from "../src/assets/music.gif";
 import nft from "../src/assets/nft.gif";
@@ -12,8 +10,6 @@ import spaceship from "../src/assets/space-ship.png";
 import plane from "../src/assets/plane.png";
 import banner from "../src/assets/banner.png";
 import Hover from "react-3d-hover";
-import Footer from "../src/components/Footer";
-import PlanCard from "../src/components/PlanCard";
 import Button from "../src/components/Button";
 
 export default function Home() {
