@@ -187,5 +187,5 @@
 
 .plan_benefits ul {
   margin: 10px;
-  list-style: decimal;
+  /* list-style: none; */
 }
