@@ -17,7 +17,7 @@
     cursor: pointer;
     display: inline-flex;
     /* font-family: "JetBrains Mono", monospace; */
-    height: 48px;
+    /* height: 48px; */
     font-weight: 600;
     justify-content: center;
     line-height: 1;
@@ -34,7 +34,8 @@
     touch-action: manipulation;
     white-space: nowrap;
     will-change: box-shadow, transform;
-    font-size: 18px;
+    font-size: 16px;
+    padding: 10px;
   }
   
   .btn:focus {
