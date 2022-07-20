@@ -91,11 +91,11 @@ export default function Home() {
                   <br />
                   <div className={styles.plan_benefits}>
                     <h4>Benefits</h4>
-                    <ul>
+                    {/* <ul> */}
                       <li>lorem</li>
                       <li>lorem</li>
                       <li>lorem</li>
-                    </ul>
+                    {/* </ul> */}
                   </div>
                 </div>
               </div>
@@ -114,11 +114,11 @@ export default function Home() {
                   <br />
                   <div className={styles.plan_benefits}>
                     <h4>Benefits</h4>
-                    <ul>
+                    {/* <ul> */}
                       <li>lorem</li>
                       <li>lorem</li>
                       <li>lorem</li>
-                    </ul>
+                    {/* </ul> */}
                   </div>
                 </div>
               </div>
@@ -137,11 +137,11 @@ export default function Home() {
                   <br />
                   <div className={styles.plan_benefits}>
                     <h4>Benefits</h4>
-                    <ul>
+                    {/* <ul className={styles.benefits}> */}
                       <li>lorem</li>
                       <li>lorem</li>
                       <li>lorem</li>
-                    </ul>
+                    {/* </ul> */}
                   </div>
                 </div>
               </div>

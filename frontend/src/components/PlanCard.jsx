@@ -19,11 +19,11 @@ export default function PlanCard(props) {
           <br />
           <div className={styles.plan_benefits}>
           <h4>Benefits</h4>
-            <ul>
+            {/* <ul> */}
               <li>lorem</li>
               <li>lorem</li>
               <li>lorem</li>
-            </ul>
+            {/* </ul> */}
           </div>
           <Button title={"Subscribe"} />
         </div>

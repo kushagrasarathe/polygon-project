@@ -1,6 +1,6 @@
 .container {
-  margin: 20px;
-  padding: 1.5rem 2.5rem;
+  /* margin: 20px; */
+  padding: 0rem 2.5rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -124,7 +124,7 @@
 
 }
 
-.categories_cards {
+.categories_cards, .plan_cards, .explore_cards {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,12 +133,6 @@
 
 /* plan section */
 
-.plan_cards {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
 
 .plan_card {
   max-width: 350px;
@@ -182,10 +176,24 @@
 }
 
 .plan_benefits {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
+  align-items: center;
+  margin: 0 auto;
 }
 
-.plan_benefits ul {
-  margin: 10px;
+.plan_benefits * {
+  /* border: 1px solid red; */
+}
+
+.plan_benefits h4 {
+  /* border: 1px solid red; */
+  margin-bottom: 10px;
+}
+
+.plan_benefits li {
+  /* margin: 10px 0; */
   list-style: none;
 }

@@ -18,22 +18,17 @@ export default function team() {
           <div className={styles.card}>
             <Image src={kushagra} alt="" />
             <h1>Kushagra Sarathe</h1>
-            <h3>Designed and Developed Frontend</h3>
+            <h3>Front-end Designing & Development</h3>
           </div>
           <div className={styles.card}>
             <Image src={dhruv} alt="" />
             <h1>Dhruv Agarwal</h1>
-            <h3>Worked on Integration and Backend logic</h3>
-          </div>
-          <div className={styles.card}>
-            <Image src={adii} alt="" />
-            <h1>Aditya Gupta</h1>
-            <h3>Worked on Backend</h3>
+            <h3>Backend & Integration</h3>
           </div>
           <div className={styles.card}>
             <Image src={shouryam} alt="" />
             <h1>Shouryam Kumar</h1>
-            <h3>Worked on Backend</h3>
+            <h3>Backend & Documentation</h3>
           </div>
         </div>
 
