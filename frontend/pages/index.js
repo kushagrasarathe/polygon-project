@@ -14,7 +14,7 @@ import Hover from "react-3d-hover";
 import Footer from "../src/components/Footer";
 import PlanCard from "../src/components/PlanCard";
 import Button from "../src/components/Button";
-
+import { Owner_address } from "../utils/constants";
 export default function Home() {
   return (
     <div style={{ scrollBehavior: "smooth" }}>
@@ -98,6 +98,8 @@ export default function Home() {
         <div>
           <Hover scale={1} perspective={900} speed={500}>
             <PlanCard
+              planId={"0"}
+              creatorAddress={Owner_address}
               month={"1 Month"}
               name={"Basic"}
               amount={"0.2"}
@@ -108,6 +110,8 @@ export default function Home() {
         <div>
           <Hover scale={1} perspective={900} speed={500}>
             <PlanCard
+              planId={"1"}
+              creatorAddress={Owner_address}
               month={"3 Months"}
               name={"Premium"}
               amount={"0.5"}
@@ -118,6 +122,8 @@ export default function Home() {
         <div>
           <Hover scale={1} perspective={900} speed={500}>
             <PlanCard
+              planId={"2"}
+              creatorAddress={Owner_address}
               month={"6 Months"}
               name={"Exclusive"}
               amount={"1"}

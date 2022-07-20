@@ -7,3 +7,7 @@ Metadata
 Content added with CID: bafybeiah2x2zvenc3ecpiygbl3bvoe5tpxhsxobzz4xyrutdlemnukg6uu
 
 ipfs://bafybeiah2x2zvenc3ecpiygbl3bvoe5tpxhsxobzz4xyrutdlemnukg6uu/metadata/
+
+New Metadata
+Content added with CID: bafybeicucwbhwif7lsfrk536pb6bf2rntvrvxxoryxwz4yuztwgt772opi
+ipfs://bafybeicucwbhwif7lsfrk536pb6bf2rntvrvxxoryxwz4yuztwgt772opi/metadata/

@@ -1,26 +1,6 @@
-export const SilverPLan = {
-  planId: 0,
-  Amount: 0.2,
-  frequency: 30,
-};
-
-export const GoldPLan = {
-  planId: 1,
-  Amount: 0.5,
-  frequency: 90,
-};
-
-export const PlatinumPLan = {
-  planId: 2,
-  Amount: 1,
-  frequency: 120,
-};
-
-export const Owner_address = "0xe22eCBbA8fB9C0124eeCb6AfE0bf6A487424989f";
-
-export const Subscription_Contract_Address =
-  "0x92ce05f2f354f6a047a9202F60A1F61311c04169";
-export const Subscription_Contract_ABI = [
+const ethers = require("ethers");
+// import abi from "../artifacts/contracts/Subscription1.sol/SubscriptionPlan.json";
+const ABI = [
   {
     inputs: [
       {
@@ -432,3 +412,38 @@ export const Subscription_Contract_ABI = [
     type: "receive",
   },
 ];
+const private_key = "";
+const provider = new ethers.providers.JsonRpcProvider("");
+const wallet = new ethers.Wallet(private_key, provider);
+
+async function main() {
+  const contractaddress = "0x92ce05f2f354f6a047a9202F60A1F61311c04169";
+  const ownerAddress = "0xe22eCBbA8fB9C0124eeCb6AfE0bf6A487424989f";
+  console.log("Fetching the plans");
+  const contract = new ethers.Contract(contractaddress, ABI, provider);
+  const connectedContract = contract.connect(wallet);
+
+  console.log("Connected with the contract .. \n");
+
+  console.log(" Checking Plans\n ");
+  //   console.log(
+  //     " 0--> Silver --> 0.2 , 1month \n 1--> Gold --> 0.5, 3month  \n 2--> Platinum --> 1,6month \n"
+  //   );
+  const tx1 = await connectedContract.getPlans(0, ownerAddress);
+  console.log(tx1);
+
+  //   const tx2 = await connectedContract.getPlans(1, ownerAddress);
+  //   console.log(tx2);
+  //   console.log("hash: ", tx2.hash);
+
+  //   const tx3 = await connectedContract.getPlans(2, ownerAddress);
+  //   console.log(tx3);
+  //   console.log("hash: ", tx3.hash);
+
+  console.log("\n All the plans checked successfully🥳🥳");
+}
+
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});

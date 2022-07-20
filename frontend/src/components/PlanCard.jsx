@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./PlanCard.module.css";
 import Image from "next/image";
 import Button from "../components/Button";
+import Subscribe from "./Subscribe";
 export default function PlanCard(props) {
   return (
     <div className={`${styles.card}`}>
@@ -25,7 +26,11 @@ export default function PlanCard(props) {
               <p className={styles.cardText}>Caze Token</p>
               <p className={styles.cardText}>Free Mint</p>
             </div>
-            <Button title={"Subscribe"} />
+            {/* <Button title={"Subscribe"} /> */}
+            <Subscribe
+              planId={props.planId}
+              creatorAddress={props.creatorAddress}
+            />
           </div>
         </div>
       </div>
