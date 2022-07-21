@@ -36,7 +36,6 @@ function MyApp({ Component, pageProps }) {
           {/* </NextUIProvider> */}
         </RainbowKitProvider>
       </WagmiConfig>
-      ;
     </>
   );
 }

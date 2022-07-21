@@ -18,10 +18,10 @@
 
 .nav,
 .nav-list {
-  padding: 20px;
+  padding: 5px;
   background-image: radial-gradient(circle at 50% -20%, #ffffff12, #00000063);
 
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgb(0, 0, 0);
   /* background-color: rgba(0, 0, 0, 0.85); */
   color: #bec5d2;
   font-weight: 600;
@@ -58,6 +58,8 @@
 .navLeft > li {
   padding: 10px 30px 10px 0px;
   transition: 0.2s;
+  font-weight: 600;
+  /* font-size: 18px; */
 }
 
 .navLeft a:hover {
@@ -80,9 +82,9 @@
 
 .logo {
   /* max-height: 2vh; */
-  max-width: 150px;
+  max-width: 120px;
   height: auto;
-  margin: 0;
+  margin: auto 0;
   padding: 0px 10px 0px 30px;
 }
 
@@ -167,13 +169,14 @@
   cursor: pointer;
   display: inline-flex;
   font-family: "JetBrains Mono", monospace;
-  height: 48px;
+  height: auto;
   justify-content: center;
   line-height: 1;
   list-style: none;
   overflow: hidden;
   padding-left: 16px;
   padding-right: 16px;
+  padding: 8px;
   position: relative;
   text-align: left;
   text-decoration: none;
