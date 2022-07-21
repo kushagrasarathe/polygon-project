@@ -15,6 +15,7 @@ import Footer from "../src/components/Footer";
 import PlanCard from "../src/components/PlanCard";
 import Button from "../src/components/Button";
 import { Owner_address } from "../utils/constants";
+
 export default function Home() {
   return (
     <div style={{ scrollBehavior: "smooth" }}>
