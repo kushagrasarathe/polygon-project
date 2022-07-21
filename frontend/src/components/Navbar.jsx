@@ -56,7 +56,7 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link href="/account">
+            <Link href="/account/user">
               <a>Account</a>
             </Link>
           </li>

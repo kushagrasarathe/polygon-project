@@ -375,3 +375,55 @@
   color: #000;
   transition: 0.2s;
 }
+
+.team_section * {
+  /* border: 1px solid red; */
+}
+
+.team_section {
+  /* height: 1000px; */
+  margin: 135px auto; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  /* flex-direction: row; */
+}
+
+.team_member {
+  box-sizing: border-box;
+  padding: 20px;
+  text-align: center;
+  margin: 20px;
+  transition: transform ease-in-out .2s;
+  border: 2px solid gray;
+  border-radius: 10px;
+
+}
+
+.team_member:hover {
+  transform: scale(0.98);
+}
+
+.member_pfp {
+  display: inline-block;
+  max-width: 350px;
+  border-radius: 10px;
+}
+
+.memeber_name {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 8px;
+}
+
+.member_contribution {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+@media screen and ( max-width: 768px ) {
+  .team_section {
+    margin: auto;
+  }
+}
