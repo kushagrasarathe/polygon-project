@@ -16,10 +16,8 @@ import Footer from "../src/components/Footer";
 import PlanCard from "../src/components/PlanCard";
 import Button from "../src/components/Button";
 import { Owner_address } from "../utils/constants";
-<<<<<<< HEAD
-=======
 import Link from "next/link";
->>>>>>> 23c667bd9d29857d7d8ca88d10571d5785a6390b
+
 
 export default function Home() {
   return (
