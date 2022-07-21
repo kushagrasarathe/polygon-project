@@ -1,9 +1,6 @@
 NFT contract deployed to: 0xfAB685ca8e509c4673d0704807bC3206c1a209d1
-
-<!-- Subscription deployed to: 0x72ad7812D043932f0D08cb15d2fc2A2B7233dfa4 -->
-
+Subscription deployed to: 0x72ad7812D043932f0D08cb15d2fc2A2B7233dfa4
 Subscription deployed to: 0x92ce05f2f354f6a047a9202F60A1F61311c04169
-Creator contract deployed to: 0xbC76Ee63Fd3b3042644B859b2F42dE55A23D653C
 
 # Advanced Sample Hardhat Project
 

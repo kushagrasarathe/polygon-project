@@ -3,13 +3,13 @@ pragma solidity ^0.8.4;
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Creator is Ownable {
-    struct creator {
-        address creatorAddress;
+    struct Creator {
+        address creator;
         string name;
-        string ceramicDID;
+        string cermamicDID;
     }
 
-    mapping(uint256 => creator) creators;
+    mapping(uint256 => Creator) creators;
 
     uint256 id = 0;
 
@@ -22,33 +22,28 @@ contract Creator is Ownable {
 
     /// add the creator to the creator Array;
     function addCreator(
-        address _creatorAddress,
+        address creator,
         string memory name,
         string memory ceramicDID
     ) public returns (uint256) {
-        require(_creatorAddress != address(0), "Enter a Valid Address");
-        creators[id] = creator(_creatorAddress, name, ceramicDID);
+        require(creator != address(0), "Enter a Valid Address");
+        Creator memory _creator = creators[id];
+        _creator.name = name;
+        _creator.creator = creator;
+        _creator.cermamicDID = ceramicDID;
         uint256 _id = id;
-        emit creatorAdded(_id, _creatorAddress, name, ceramicDID);
+        emit creatorAdded(_id, creator, name, ceramicDID);
         id += 1;
         return _id;
     }
 
     /// removes the creator for the id mentioned
-    function removeCreator(uint256 _id) public onlyOwner {
-        delete creators[_id];
+    function removeCreator(uint256 id) public onlyOwner {
+        delete creators[id];
     }
 
     /// returns the creator for the id fetched
-    function fetchCreators(uint256 _id) public view returns (creator memory) {
-        return creators[_id];
-    }
-
-    function fetchDID(uint256 _id) public view returns (string memory) {
-        return creators[_id].ceramicDID;
-    }
-
-    function fetchAddress(uint256 _id) public view returns (address) {
-        return creators[_id].creatorAddress;
+    function fetchCreators(uint256 id) public view returns (Creator) {
+        return creators[id];
     }
 }
