@@ -16,10 +16,7 @@ import Footer from "../src/components/Footer";
 import PlanCard from "../src/components/PlanCard";
 import Button from "../src/components/Button";
 import { Owner_address } from "../utils/constants";
-<<<<<<< HEAD
-=======
 import Link from "next/link";
->>>>>>> 23c667bd9d29857d7d8ca88d10571d5785a6390b
 
 export default function Home() {
   return (
@@ -35,11 +32,10 @@ export default function Home() {
             Subscribe to your favorite creators And get access to exclusive
             content
           </span>
-          
-          <Link href={'/explore'}>
+
+          <Link href={"/explore"}>
             <button className={styles.explore_btn}> Explore </button>
           </Link>
-          
         </main>
 
         {/* categories section */}
@@ -104,9 +100,9 @@ export default function Home() {
                   <div className={styles.plan_benefits}>
                     <h4>Benefits</h4>
                     {/* <ul> */}
-                      <li>lorem</li>
-                      <li>lorem</li>
-                      <li>lorem</li>
+                    <li>lorem</li>
+                    <li>lorem</li>
+                    <li>lorem</li>
                     {/* </ul> */}
                   </div>
                 </div>
@@ -127,9 +123,9 @@ export default function Home() {
                   <div className={styles.plan_benefits}>
                     <h4>Benefits</h4>
                     {/* <ul> */}
-                      <li>lorem</li>
-                      <li>lorem</li>
-                      <li>lorem</li>
+                    <li>lorem</li>
+                    <li>lorem</li>
+                    <li>lorem</li>
                     {/* </ul> */}
                   </div>
                 </div>
@@ -150,9 +146,9 @@ export default function Home() {
                   <div className={styles.plan_benefits}>
                     <h4>Benefits</h4>
                     {/* <ul className={styles.benefits}> */}
-                      <li>lorem</li>
-                      <li>lorem</li>
-                      <li>lorem</li>
+                    <li>lorem</li>
+                    <li>lorem</li>
+                    <li>lorem</li>
                     {/* </ul> */}
                   </div>
                 </div>
