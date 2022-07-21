@@ -9,7 +9,7 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export default function Navbar() {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
-
+  
   return (
     <nav className={styles.nav}>
       <div className={styles.hamMenu}>
@@ -56,7 +56,7 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link href="/account">
+            <Link href="/account/user">
               <a>Account</a>
             </Link>
           </li>

@@ -375,3 +375,104 @@
   color: #000;
   transition: 0.2s;
 }
+
+
+/* team section */
+
+.team_section * {
+  /* border: 1px solid red; */
+}
+
+.team_section {
+  /* height: 1000px; */
+  margin: 135px auto; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  /* flex-direction: row; */
+}
+
+.team_member {
+  box-sizing: border-box;
+  padding: 20px;
+  text-align: center;
+  margin: 20px;
+  transition: transform ease-in-out .2s;
+  border: 2px solid gray;
+  border-radius: 10px;
+
+}
+
+.team_member:hover {
+  transform: scale(0.98);
+}
+
+.member_pfp {
+  display: inline-block;
+  max-width: 350px;
+  border-radius: 10px;
+}
+
+.memeber_name {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 8px;
+}
+
+.member_contribution {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* user account */
+.user_section {
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.account_card {
+  overflow: hidden;
+  margin: 10px;
+  padding: 20px;
+  color: black;
+  max-width: 600px;
+  background-color: rgb(206, 209, 254);
+  border-radius: 8px;
+}
+
+.account_card * {
+  margin: 10px auto;
+}
+
+.user_subscription {
+  text-align: center;
+  margin: 30px;
+}
+
+.user_subscription * {
+  margin: 15px;
+}
+
+.profile_image {
+  margin: 0 auto;
+  max-width: 250px;
+}
+
+.card_title {
+  text-align: center;
+}
+
+@media screen and ( max-width: 768px ) {
+  .team_section {
+    margin: auto;
+  }
+
+  .account_card {
+    max-width: 320px;
+  }
+}
