@@ -10,130 +10,154 @@ import artist from "../src/assets/artist.gif";
 import paperplane from "../src/assets/paper-plane.png";
 import spaceship from "../src/assets/space-ship.png";
 import plane from "../src/assets/plane.png";
+import banner from "../src/assets/banner.png";
 import Hover from "react-3d-hover";
 import Footer from "../src/components/Footer";
 import PlanCard from "../src/components/PlanCard";
 import Button from "../src/components/Button";
 import { Owner_address } from "../utils/constants";
+import Link from "next/link";
+
 export default function Home() {
   return (
-    <div style={{ scrollBehavior: "smooth" }}>
-      {/* <Navbar /> */}
-      <div className={styles.main}>
-        <p className={styles.subHeading}>
-          <span className={styles.tagline}>Welcome To</span>
-        </p>
-        <h1 className={styles.heading}>CAZE</h1>
-        <p className={styles.subHeading}>
+    <>
+      <div className={styles.container}>
+        {/* main section */}
+        <main className={styles.main}>
+          <h1 className={styles.title}>CAZE</h1>
+          <span className={styles.banner}>
+            <Image src={banner} />
+          </span>
           <span className={styles.tagline}>
             Subscribe to your favorite creators And get access to exclusive
             content
           </span>
-        </p>
-        <Button title={"Explore"} />
-      </div>
+          
+          <Link href={'/explore'}>
+            <button className={styles.explore_btn}> Explore </button>
+          </Link>
+          
+        </main>
 
-      {/* <hr /> */}
-      <br />
-      <div className={styles.subHead}>
-        <h1 className={styles.subTitle}>Explore among categories</h1>
-      </div>
-      <br />
+        {/* categories section */}
+        <div className={styles.category}>
+          <h1 className={styles.section_heading}>Explore among categories</h1>
+          <div className={styles.categories_cards}>
+            <Hover scale={1} perspective={900} speed={500}>
+              <Card
+                img={music}
+                heading={"Music Artists"}
+                matter={
+                  "Support your favorite music creators and pay only for what you listen to 🤩 "
+                }
+              />
+            </Hover>
 
-      <div className={styles.container}>
-        <div className={styles.item}>
-          <Hover scale={1} perspective={900} speed={500}>
-            <Card
-              img={music}
-              heading={"Music Artists"}
-              matter={
-                "Support your favorite music creators and pay only for what you listen to 🤩 "
-              }
-            />
-          </Hover>
+            <Hover scale={1} perspective={900} speed={500}>
+              <Card
+                img={artist}
+                heading={"Digital Creators"}
+                matter={
+                  "Access and collect digital arts from creators around the world 😇"
+                }
+              />
+            </Hover>
+            <Hover scale={1} perspective={900} speed={500}>
+              <Card
+                img={nft}
+                heading={"NFT Artists"}
+                matter={
+                  "Mint NFTs from your favorite projects and artists by only paying once 🫣"
+                }
+              />
+            </Hover>
+            <Hover scale={1} perspective={900} speed={500}>
+              <Card
+                img={creator}
+                heading={"Video Creators"}
+                matter={
+                  "Support your favorite video creators and get access to special content every month 😘	"
+                }
+              />
+            </Hover>
+          </div>
         </div>
 
-        <div className={styles.item}>
-          <Hover scale={1} perspective={900} speed={500}>
-            <Card
-              img={artist}
-              heading={"Digital Creators"}
-              matter={
-                "Access and collect digital arts from creators around the world 😇"
-              }
-            />
-          </Hover>
-        </div>
-        <div className={styles.item}>
-          <Hover scale={1} perspective={900} speed={500}>
-            <Card
-              img={nft}
-              heading={"NFT Artists"}
-              matter={
-                "Mint NFTs from your favorite projects and artists by only paying once 🫣"
-              }
-            />
-          </Hover>
-        </div>
-        <div className={styles.item}>
-          <Hover scale={1} perspective={900} speed={500}>
-            <Card
-              img={creator}
-              heading={"Video Creators"}
-              matter={
-                "Support your favorite video creators and get access to special content every month 😘	"
-              }
-            />
-          </Hover>
-        </div>
-      </div>
-
-      <br />
-      <br />
-      <div className={styles.subHead}>
-        <h1 className={styles.subTitle}>Choose across plans</h1>
-      </div>
-      <br />
-      <div className={styles.container}>
-        <div>
-          <Hover scale={1} perspective={900} speed={500}>
-            <PlanCard
-              planId={"0"}
-              creatorAddress={Owner_address}
-              month={"1 Month"}
-              name={"Basic"}
-              amount={"0.2"}
-              img={paperplane}
-            />
-          </Hover>
-        </div>
-        <div>
-          <Hover scale={1} perspective={900} speed={500}>
-            <PlanCard
-              planId={"1"}
-              creatorAddress={Owner_address}
-              month={"3 Months"}
-              name={"Premium"}
-              amount={"0.5"}
-              img={spaceship}
-            />
-          </Hover>
-        </div>
-        <div>
-          <Hover scale={1} perspective={900} speed={500}>
-            <PlanCard
-              planId={"2"}
-              creatorAddress={Owner_address}
-              month={"6 Months"}
-              name={"Exclusive"}
-              amount={"1"}
-              img={plane}
-            />
-          </Hover>
+        <div className={styles.plans}>
+          <h1 className={styles.section_heading}>Choose across 3 plans </h1>
+          <div className={styles.plan_cards}>
+            <Hover scale={1} perspective={900} speed={500}>
+              <div className={`${styles.plan_card} ${styles.shadow}`}>
+                <div className={`${styles.card_content}`}>
+                  <h2>Silver</h2>
+                  <br />
+                  <div className={styles.card_img}>
+                    <Image src={paperplane} alt="" />
+                  </div>
+                  <br />
+                  <h3>1 Month</h3>
+                  <p>0.2 MATIC</p>
+                  <br />
+                  <div className={styles.plan_benefits}>
+                    <h4>Benefits</h4>
+                    {/* <ul> */}
+                      <li>lorem</li>
+                      <li>lorem</li>
+                      <li>lorem</li>
+                    {/* </ul> */}
+                  </div>
+                </div>
+              </div>
+            </Hover>
+            <Hover scale={1} perspective={900} speed={500}>
+              <div className={`${styles.plan_card} ${styles.shadow}`}>
+                <div className={`${styles.card_content}`}>
+                  <h2>Gold</h2>
+                  <br />
+                  <div className={styles.card_img}>
+                    <Image src={plane} alt="" />
+                  </div>
+                  <br />
+                  <h3>3 Month</h3>
+                  <p>0.5 MATIC</p>
+                  <br />
+                  <div className={styles.plan_benefits}>
+                    <h4>Benefits</h4>
+                    {/* <ul> */}
+                      <li>lorem</li>
+                      <li>lorem</li>
+                      <li>lorem</li>
+                    {/* </ul> */}
+                  </div>
+                </div>
+              </div>
+            </Hover>
+            <Hover scale={1} perspective={900} speed={500}>
+              <div className={`${styles.plan_card} ${styles.shadow}`}>
+                <div className={`${styles.card_content}`}>
+                  <h2>Platinum</h2>
+                  <br />
+                  <div className={styles.card_img}>
+                    <Image src={spaceship} alt="" />
+                  </div>
+                  <br />
+                  <h3>6 Month</h3>
+                  <p>1.0 MATIC</p>
+                  <br />
+                  <div className={styles.plan_benefits}>
+                    <h4>Benefits</h4>
+                    {/* <ul className={styles.benefits}> */}
+                      <li>lorem</li>
+                      <li>lorem</li>
+                      <li>lorem</li>
+                    {/* </ul> */}
+                  </div>
+                </div>
+              </div>
+            </Hover>
+          </div>
         </div>
       </div>
-      {/* <hr />
-      <Footer /> */}
-    </div>
+    </>
   );
 }
