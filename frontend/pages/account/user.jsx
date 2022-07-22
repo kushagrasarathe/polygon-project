@@ -19,9 +19,9 @@ export default function user() {
         </div>
       </div> */}
 
-      <div className={styles.container}>
+      <div className={`${styles.container}`}>
         <h1 className={styles.section_heading}>User Account Details</h1>
-        <div className={styles.user_section}>
+        <div className={`${styles.user_section}`}>
           <div className={styles.account_card}>
             <div className={styles.profile_image}>
               <Image src={profile} />
