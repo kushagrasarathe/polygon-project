@@ -32,11 +32,11 @@ export default function () {
   /// to set the DID for the user , extracted from the Ceramic contract
   const [DID, setDID] = useState("");
 
-  // const [fileUrl, updateFileUrl] = useState(``);
-  const setnewDID = async () => {
-    const [connection, connect, disconnect] = useViewerConnection();
-    setDID(connection.selfID.id);
-  };
+  // // const [fileUrl, updateFileUrl] = useState(``);
+  // const setnewDID = async () => {
+  //   const [connection, connect, disconnect] = useViewerConnection();
+  //   setDID(connection.selfID.id);
+  // };
 
   const { address } = useAccount();
   const { data: signer } = useSigner();
@@ -148,7 +148,7 @@ export default function () {
               value={pfp}
               onChange={(e) => setPfp(e.target.files[0])}
             />
-            {fileUrl && <img src={fileUrl} width="600px" />}
+            {/* {fileUrl && <img src={fileUrl} width="600px" />} */}
 
             <div className={styles.register_label}>Full Name</div>
             <input
@@ -190,7 +190,7 @@ export default function () {
             value={content}
             onChange={(e) => setContent(e.target.files)}
           />
-          {fileUrl && <img src={fileUrl} width="600px" />}
+          {/* {fileUrl && <img src={fileUrl} width="600px" />} */}
           <hr />
 
           <button className={styles.submit_btn} onClick={handleSubmit}>
