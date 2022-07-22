@@ -13,9 +13,6 @@ import { useViewerConnection } from "@self.id/react";
 
 ///  gives a button that makes a user join the ceramic
 import Ceramic from "../src/components/ceramic";
-/// intializing ceramic
-// import { EthereumAuthProvider } from "@self.id/web";
-// import { useViewerConnection } from "@self.id/react";
 
 export default function () {
   const [isLoading, setIsLoading] = useState(false);
@@ -32,11 +29,18 @@ export default function () {
   /// to set the DID for the user , extracted from the Ceramic contract
   const [DID, setDID] = useState("");
 
-  // // const [fileUrl, updateFileUrl] = useState(``);
-  // const setnewDID = async () => {
-  //   const [connection, connect, disconnect] = useViewerConnection();
-  //   setDID(connection.selfID.id);
-  // };
+  const [id, setId] = useState(0);
+
+  const [connection] = useViewerConnection();
+
+  // const [fileUrl, updateFileUrl] = useState(``);
+  const setnewDID = async () => {
+    if (connection.status === "connected") {
+      setDID(connection.selfID.id);
+    } else {
+      console.log("error");
+    }
+  };
 
   const { address } = useAccount();
   const { data: signer } = useSigner();
@@ -47,43 +51,38 @@ export default function () {
     signerOrProvider: signer || provider,
   });
 
-  /// to upload the content to ipfs
+  /// to upload the content to ipfs --- working
   async function uploadContent() {
-    // const file = e.target.files[0];
-    // setContent(file);
     try {
       console.log("Uploading Content to IPFS ... ");
+      console.log(content);
       const CID = await StoreContent(content);
-      // const added = await client.add(file);
-      // const url = `https://ipfs.infura.io/ipfs/${added.path}`;
-      // updateFileUrl(url);
       const hash = `https://ipfs.io/ipfs/${CID}`;
       setContentIpfs(hash);
       console.log(
         "Content uploaded to IPFS successfully 🚀🚀  with CID : ",
         hash
       );
+
+      return true;
     } catch (error) {
       console.log("Error uploading file: ", error);
     }
   }
 
-  /// to upload the pfp to the ipfs and get a hash
-  async function uploadPfp(e) {
-    // const file = e.target.files[0];
-    // setPfp(file);
+  /// to upload the pfp to the ipfs and get a hash --- working
+  async function uploadPfp() {
     try {
       console.log("Profile uploading to IPFS ...");
+      console.log(pfp);
       const CID = await StoreContent(pfp);
-      // const added = await client.add(file);
-      // const url = `https://ipfs.infura.io/ipfs/${added.path}`;
-      // updateFileUrl(url);
       const hash = `https://ipfs.io/ipfs/${CID}`;
       setPfpIpfs(hash);
       console.log(
         "Profile uploaded to IPFS successfully 🚀🚀  with CID : ",
         hash
       );
+      return true;
     } catch (error) {
       console.log("Error uploading file: ", error);
     }
@@ -92,9 +91,10 @@ export default function () {
   // to update all the data to ceramic
   const updateDID = async () => {
     try {
-      console.log("Updating data to the ipfs ....");
+      console.log("Updating data to the Ceramic");
       SetViewer(name, bio, title, pfpIpfs, contentIpfs);
-      console.log("Data uploaded to the IPFS 🚀🚀");
+      console.log("Data uploaded to the ceramic 🚀🚀");
+      return true;
     } catch (err) {
       console.log(err);
     }
@@ -107,7 +107,10 @@ export default function () {
       const tx = await Creator_contract.addCreator(address, name, DID);
       await tx.wait();
       console.log(tx.hash);
+      console.log(tx);
+      setId(tx);
       console.log("Creator Added and Profile added Successfully🚀🚀");
+      return true;
     } catch (err) {
       console.log(err);
     }
@@ -117,14 +120,14 @@ export default function () {
     try {
       setIsLoading(true);
       /// uploading content to the IPFS
-      uploadPfp();
-      uploadContent();
-      /// setting the DID
-      setnewDID();
+      // await uploadPfp();
+      // await uploadContent();
+      //  setting the DID
+      await setnewDID();
       /// updating profile at ceramic and getting the DID
-      updateDID();
+      await updateDID();
       /// finally minting the profile for the creator
-      addCreator();
+      // await addCreator();
       setIsLoading(false);
     } catch (err) {
       console.log(err);
@@ -145,7 +148,6 @@ export default function () {
             <input
               className={styles.register_input}
               type="file"
-              value={pfp}
               onChange={(e) => setPfp(e.target.files[0])}
             />
             {/* {fileUrl && <img src={fileUrl} width="600px" />} */}
@@ -187,8 +189,7 @@ export default function () {
             className={styles.register_input}
             type="file"
             multiple
-            value={content}
-            onChange={(e) => setContent(e.target.files)}
+            onChange={(e) => setContent(e.target.files[0])}
           />
           {/* {fileUrl && <img src={fileUrl} width="600px" />} */}
           <hr />

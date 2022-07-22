@@ -26,20 +26,18 @@ const wagmiClient = createClient({
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
+    <Provider client={{ ceramic: "testnet-clay" }}>
       <WagmiConfig client={wagmiClient}>
         <RainbowKitProvider chains={chains}>
-          <Provider client={{ ceramic: "testnet-clay" }}>
-            {/* <NextUIProvider> */}
-            <Navbar />
-            <Component {...pageProps} />
-            <hr />
-            <Footer />
-            {/* </NextUIProvider> */}
-          </Provider>
+          {/* <NextUIProvider> */}
+          <Navbar />
+          <Component {...pageProps} />
+          <hr />
+          <Footer />
+          {/* </NextUIProvider> */}
         </RainbowKitProvider>
       </WagmiConfig>
-    </>
+    </Provider>
   );
 }
 

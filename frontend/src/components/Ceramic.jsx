@@ -1,6 +1,7 @@
-// import { EthereumAuthProvider } from "@self.id/web";
+import { EthereumAuthProvider } from "@self.id/web";
 import { useProvider, useAccount } from "wagmi";
 import { useViewerConnection } from "@self.id/react";
+
 import { useViewerRecord } from "@self.id/react";
 import { usePublicRecord } from "@self.id/framework";
 import styles from "../../styles/Home.module.css";
@@ -8,29 +9,34 @@ import styles from "../../styles/Home.module.css";
 /// get the hook from register setDID to set the Did for the user
 export default function Ceramic() {
   /// returns the option to connect by calling connectToSelfID
-  const [connection, connect, disconnect] = useViewerConnection();
+  const [connection, connect] = useViewerConnection();
   /// DID for the viewee connected according to it's connected address
   // const DID = connection.selfID.id;
 
-  const connectToSelfID = async () => {
-    const ethereumAuthProvider = await getEthereumAuthProvider();
-    connect(ethereumAuthProvider);
-  };
+  const provider = useProvider();
+  const { address } = useAccount();
 
   const getEthereumAuthProvider = async () => {
-    const provider = await useProvider();
-    const { address } = useAccount;
     return new EthereumAuthProvider(provider, address);
   };
+
+  const connectToSelfID = async () => {
+    console.log("Connecting");
+    const ethereumAuthProvider = await getEthereumAuthProvider();
+    await connect(ethereumAuthProvider);
+    console.log("Connected");
+    console.log(connection.status);
+  };
+
   return (
     <div>
-      {connection.status ? (
+      {connection.status === "connected" ? (
+        <a>{connection.selfID.id}</a>
+      ) : (
         <button className={styles.submit_btn} onClick={connectToSelfID}>
           {" "}
           Connet to Ceramic{" "}
         </button>
-      ) : (
-        connection.selfID.id
       )}
     </div>
   );
