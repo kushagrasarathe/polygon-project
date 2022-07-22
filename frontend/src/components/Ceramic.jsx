@@ -5,12 +5,11 @@ import { useViewerRecord } from "@self.id/react";
 import { usePublicRecord } from "@self.id/framework";
 
 /// get the hook from register setDID to set the Did for the user
-export default function Ceramic(props) {
+export default function Ceramic() {
   /// returns the option to connect by calling connectToSelfID
   const [connection, connect, disconnect] = useViewerConnection();
   /// DID for the viewee connected according to it's connected address
   const DID = connection.selfID.id;
-  //   setDID(DID);
   const connectToSelfID = async () => {
     const ethereumAuthProvider = await getEthereumAuthProvider();
     connect(ethereumAuthProvider);

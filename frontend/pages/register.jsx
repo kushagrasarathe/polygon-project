@@ -9,6 +9,7 @@ import {
 } from "../utils/constants";
 import { useContract, useSigner, useProvider, useAccount } from "wagmi";
 import { SetViewer } from "../src/components/ceramic";
+import { useViewerConnection } from "@self.id/react";
 
 ///  gives a button that makes a user join the ceramic
 import Ceramic from "../src/components/ceramic";
@@ -32,8 +33,12 @@ export default function () {
   const [DID, setDID] = useState("");
 
   // const [fileUrl, updateFileUrl] = useState(``);
+  const setnewDID = async () => {
+    const [connection, connect, disconnect] = useViewerConnection();
+    setDID(connection.selfID.id);
+  };
 
-  const { address, isConnected } = useAccount();
+  const { address } = useAccount();
   const { data: signer } = useSigner();
   const provider = useProvider();
   const Creator_contract = useContract({
@@ -114,6 +119,8 @@ export default function () {
       /// uploading content to the IPFS
       uploadPfp();
       uploadContent();
+      /// setting the DID
+      setnewDID();
       /// updating profile at ceramic and getting the DID
       updateDID();
       /// finally minting the profile for the creator
@@ -127,8 +134,7 @@ export default function () {
   return (
     <>
       <div className={styles.container}>
-        {/* /// <Ceramic /> ceramic will give the connect button to connect with ceramic and then will set the did 
-        need to export setDID */}
+        <Ceramic />
         <h1 className={styles.section_heading}>Register</h1>
         <div className={styles.register_section}>
           <p>Please fill this form to register as creator.</p>
@@ -139,7 +145,8 @@ export default function () {
             <input
               className={styles.register_input}
               type="file"
-              onChange={(e) => setPfp(e.target.value)}
+              value={pfp}
+              onChange={(e) => setPfp(e.target.files[0])}
             />
             {fileUrl && <img src={fileUrl} width="600px" />}
 
@@ -148,6 +155,7 @@ export default function () {
               className={styles.register_input}
               placeholder="Kushagra Sarathe"
               type="text"
+              value={name}
               onChange={(e) => setName(e.target.value)}
             />
 
@@ -156,6 +164,7 @@ export default function () {
               className={styles.register_input}
               placeholder="NFT Artist"
               type="text"
+              value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
@@ -167,6 +176,7 @@ export default function () {
           <textarea
             placeholder="I make videos on YouTube"
             className={styles.register_input_about}
+            value={bio}
             onChange={(e) => setBio(e.target.value)}
           ></textarea>
 
@@ -176,7 +186,9 @@ export default function () {
           <input
             className={styles.register_input}
             type="file"
-            onChange={(e) => setContent(e.target.value)}
+            multiple
+            value={content}
+            onChange={(e) => setContent(e.target.files)}
           />
           {fileUrl && <img src={fileUrl} width="600px" />}
           <hr />

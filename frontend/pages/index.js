@@ -17,10 +17,6 @@ import PlanCard from "../src/components/PlanCard";
 import Button from "../src/components/Button";
 import { Owner_address } from "../utils/constants";
 import Link from "next/link";
-<<<<<<< HEAD
-=======
-
->>>>>>> 12a8fe2a61cb747f27180de3d312de5d7cdba0f4
 
 export default function Home() {
   return (
