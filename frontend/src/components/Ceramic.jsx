@@ -67,7 +67,7 @@ export function SetViewer({ name, bio, title, pfp, content }) {
 }
 
 /// getting the record details
-export function getRecordName({ did }) {
+export function getRecord({ did }) {
   /// get the record for other person and can be fetched for them
   const record = usePublicRecord("basicProfile", did);
   const data = record.content;
