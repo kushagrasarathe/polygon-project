@@ -65,7 +65,7 @@ const Subscribe = (props) => {
   });
 
   return (
-    <button className={styles.btn} onClick={() => subscribe()}>
+    <button className={styles.btn} onClick={subscribe}>
       Subscribe
     </button>
   );

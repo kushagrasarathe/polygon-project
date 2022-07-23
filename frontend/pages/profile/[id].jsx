@@ -17,6 +17,8 @@ import { getRecord } from "../../src/components/ceramic";
 import { useState, useEffect } from "react";
 export default function Creator() {
   const [data, setData] = useState([]);
+  const [did, setDid] = useState("");
+  const [address, setAddress] = useState("");
   const router = useRouter();
   const { id } = router.query;
 
@@ -39,6 +41,12 @@ export default function Creator() {
       await did.wait();
       console.log("DID fetched from contract 🚀🚀");
       console.log(did);
+      setDid(did);
+      const address = await contract.fetchAddress(id);
+      await address.wait();
+      console.log("Address fetched from contract 🚀🚀");
+      console.log(address);
+      setAddress(address);
 
       console.log("Fetching Data from ceramic ...");
       const data = await getRecord(did);
@@ -83,25 +91,31 @@ export default function Creator() {
       <div className={styles.container}>
         <div>
           <PlanCard
-            month={"1 Month"}
-            name={"Basic"}
-            amount={"$10"}
+            planId={"0"}
+            creatorAddress={address}
+            // month={"1 Month"}
+            // name={"Silver"}
+            // amount={"0.2 Matic "}
             img={paperplane}
           />
         </div>
         <div>
           <PlanCard
-            month={"3 Months"}
-            name={"Premium"}
-            amount={"$25"}
+            planId={"1"}
+            creatorAddress={address}
+            // month={"3 Months"}
+            // name={"Gold"}
+            // amount={"0.5 Matic "}
             img={spaceship}
           />
         </div>
         <div>
           <PlanCard
-            month={"6 Months"}
-            name={"Exclusive"}
-            amount={"$50"}
+            planId={"2"}
+            creatorAddress={address}
+            // month={"6 Months"}
+            // name={"Premium"}
+            // amount={"1 Matic "}
             img={plane}
           />
         </div>

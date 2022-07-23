@@ -1,19 +1,31 @@
 export const SilverPLan = {
+  Name: "Silver",
   planId: 0,
   Amount: 0.2,
-  frequency: 30,
+  frequency: 1,
+  perks1: "Exclusie Content",
+  perks2: "Membership NFT",
+  perks3: "",
 };
 
 export const GoldPLan = {
+  Name: "Gold",
   planId: 1,
   Amount: 0.5,
-  frequency: 90,
+  frequency: 3,
+  perks1: "Silver Plan Benifits",
+  perks2: "Personalized NFT from Creator",
+  perks3: "Token Rewards",
 };
 
 export const PlatinumPLan = {
+  Name: "Platinum",
   planId: 2,
   Amount: 1,
-  frequency: 120,
+  frequency: 6,
+  perks1: "Gold Plan Benifits",
+  perks2: "Private Chat Access",
+  perks3: "1-1 Meet with Creator",
 };
 
 export const Owner_address = "0xe22eCBbA8fB9C0124eeCb6AfE0bf6A487424989f";
