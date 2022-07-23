@@ -3,8 +3,10 @@ import styles from "../../styles/Home.module.css";
 import Image from "next/image";
 import creator_nft from "../../src/assets/creator-nft.gif";
 import profile from "../../src/assets/profile.png";
+import { useAccount } from "wagmi";
 
 export default function creator() {
+  const { address } = useAccount();
   return (
     <>
       <div className={`${styles.container}`}>
