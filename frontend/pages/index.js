@@ -11,6 +11,12 @@ import paperplane from "../src/assets/paper-plane.png";
 import spaceship from "../src/assets/space-ship.png";
 import plane from "../src/assets/plane.png";
 import banner from "../src/assets/banner.png";
+import ipfs from "../src/assets/ipfs.png";
+import ceramic from "../src/assets/ceramic.png";
+import valist from "../src/assets/valist.png";
+import spheron from "../src/assets/spheron.svg";
+import web3storage from "../src/assets/web3storage.svg";
+import nftport from "../src/assets/nftport.svg";
 import Hover from "react-3d-hover";
 import Footer from "../src/components/Footer";
 import PlanCard from "../src/components/PlanCard";
@@ -100,9 +106,9 @@ export default function Home() {
                   <div className={styles.plan_benefits}>
                     <h4>Benefits</h4>
                     {/* <ul> */}
-                    <li>lorem</li>
-                    <li>lorem</li>
-                    <li>lorem</li>
+                    <li>Exclusie Content</li>
+                    <li>Membership NFT</li>
+                    {/* <li>lorem</li> */}
                     {/* </ul> */}
                   </div>
                 </div>
@@ -123,9 +129,9 @@ export default function Home() {
                   <div className={styles.plan_benefits}>
                     <h4>Benefits</h4>
                     {/* <ul> */}
-                    <li>lorem</li>
-                    <li>lorem</li>
-                    <li>lorem</li>
+                    <li>Silver Plan Benifits</li>
+                    <li>Personalized NFT from Creator</li>
+                    <li>Token Rewards</li>
                     {/* </ul> */}
                   </div>
                 </div>
@@ -146,14 +152,41 @@ export default function Home() {
                   <div className={styles.plan_benefits}>
                     <h4>Benefits</h4>
                     {/* <ul className={styles.benefits}> */}
-                    <li>lorem</li>
-                    <li>lorem</li>
-                    <li>lorem</li>
+                    <li>Gold Plan Benifits</li>
+                    <li>Private Chat Access</li>
+                    <li>1-1 Meet with Creator</li>
                     {/* </ul> */}
                   </div>
                 </div>
               </div>
             </Hover>
+          </div>
+        </div>
+
+        <div className={styles.sponsor_section}>
+          <h1 className={styles.section_heading}>Powered By</h1>
+          <div className={styles.sponsors}>
+          <div className={styles.sponsor}>
+              <Image src={ipfs} />
+            </div>
+            <div className={styles.sponsor}>
+              <Image src={spheron} />
+            </div>
+            
+            <div className={styles.sponsor}>
+              <Image src={nftport} />
+            </div>
+            
+            <div className={styles.sponsor}>
+              <Image src={valist} />
+            </div>
+            <div className={styles.sponsor}>
+              <Image src={web3storage} />
+              Web3.Storage
+            </div>
+            <div className={styles.sponsor}>
+              <Image src={ceramic} />
+            </div>
           </div>
         </div>
       </div>

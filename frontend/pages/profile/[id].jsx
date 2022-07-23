@@ -15,6 +15,17 @@ import {
 import { useContract, useProvider } from "wagmi";
 import { getRecord } from "../../src/components/ceramic";
 import { useState, useEffect } from "react";
+
+// import dataObj from  '../../utils/testdata.js'
+
+const dataObj = {
+  image: profile,
+  name: "Kushagra Sarathe",
+  title: "Fronend Developer",
+  bio: "Lorem ipsum had a funny talk about rendering data. Both tried so hard to finish the porject ans submit a functional project in hackathon. ",
+  content: profile,
+};
+
 export default function Creator() {
   const [data, setData] = useState([]);
   const [did, setDid] = useState("");
@@ -58,6 +69,8 @@ export default function Creator() {
     }
   };
 
+  // console.log(dataObj)
+
   return (
     <div className={styles.main}>
       <div className={styles.user}>
@@ -65,24 +78,18 @@ export default function Creator() {
           <Image className={styles.bannerimg} src={banner} />
         </div>
         <div className={styles.profile}>
-          <Image className={styles.profileimg} src={data.pfp} />
+          <Image className={styles.profileimg} src={profile} />
         </div>
       </div>
       <div className={styles.textContent}>
         <h1>{data.name}</h1>
-        <p className={styles.cardText}>{data.title}</p>
-        <p className={styles.about}>{data.bio}</p>
+        <p className={styles.cardText}>{dataObj.title}</p>
+        <p className={styles.about}>{dataObj.bio}</p>
       </div>
       <h1 className={styles.heading}>Content</h1>
-      /// render content from the ipfs data.content , this will just throw a
-      IPFS link
+      {/* /// render content from the ipfs data.content , this will just throw a
+      IPFS link */}
       <div className={styles.container}>
-        <div className={`${styles.item} ${styles.border}`}>
-          <Image src={profile} />
-        </div>
-        <div className={`${styles.item} ${styles.border}`}>
-          <Image src={banner} />
-        </div>
         <div className={`${styles.item} ${styles.border}`}>
           <Image src={profile} />
         </div>
@@ -93,9 +100,12 @@ export default function Creator() {
           <PlanCard
             planId={"0"}
             creatorAddress={address}
-            // month={"1 Month"}
-            // name={"Silver"}
-            // amount={"0.2 Matic "}
+            month={"1 Month"}
+            name={"Silver"}
+            amount={"0.2 Matic "}
+            perks1={"Exclusie Content"}
+            perks2={"Membership NFT"}
+            perks3={""}
             img={paperplane}
           />
         </div>
@@ -103,9 +113,12 @@ export default function Creator() {
           <PlanCard
             planId={"1"}
             creatorAddress={address}
-            // month={"3 Months"}
-            // name={"Gold"}
-            // amount={"0.5 Matic "}
+            month={"3 Months"}
+            name={"Gold"}
+            amount={"0.5 Matic "}
+            perks1={"Silver Plan Benifits"}
+            perks2={"Personalized NFT from Creator"}
+            perks3={"Token Rewards"}
             img={spaceship}
           />
         </div>
@@ -113,26 +126,16 @@ export default function Creator() {
           <PlanCard
             planId={"2"}
             creatorAddress={address}
-            // month={"6 Months"}
-            // name={"Premium"}
-            // amount={"1 Matic "}
+            month={"6 Months"}
+            name={"Premium"}
+            amount={"1 Matic "}
+            perks1={"Gold Plan Benifits"}
+            perks2={"Private Chat Access"}
+            perks3={"1-1 Meet with Creator"}
             img={plane}
           />
         </div>
       </div>
-      {/* <div id="profile-banner-image">
-        <img
-          src="https://imagizer.imageshack.com/img921/9628/VIaL8H.jpg"
-          alt="Banner image"
-        />
-      </div> */}
-      {/* <img src="https://4.bp.blogspot.com/-b3Ty2n3mrOc/UR4MAXUXHDI/AAAAAAAAAWQ/CS31CdrnNY8/s1600/profp.jpg" className={styles.propic} alt="Profile_picture" /> */}
-      {/* 
-        <div className={styles.header}>
-          Kusahgra
-        </div>
-        <div className={styles.wrapper}>
-        </div> */}
     </div>
   );
 }

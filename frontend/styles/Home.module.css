@@ -627,6 +627,39 @@
   margin: 5px;
 }
 
+/* sponsor section */
+
+.sponsor_section {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  flex-wrap: wrap;
+}
+
+.sponsors {
+  margin: 20px auto;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  /* width: max-content; */
+  border: 2px solid white;
+  border-radius: 20px;
+}
+
+.sponsor {
+  margin: 25px;
+  max-width: 150px;
+  display: flex;
+  align-items: center;
+  transition: transform ease-in-out .2s;
+}
+
+.sponsor:hover {
+  transform: scale(1.15);
+}
+
 @media screen and ( max-width: 768px ) {
   .team_section {
     margin: auto;
