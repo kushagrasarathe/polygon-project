@@ -442,8 +442,22 @@
   padding: 20px;
   color: black;
   max-width: 600px;
-  background-color: rgb(206, 209, 254);
+  background-image: linear-gradient(
+    to top,
+    #18affb,
+    #00bff9,
+    #00cced,
+    #00d8db,
+    #3ee1c6
+  );
+  background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
   border-radius: 8px;
+  border: 2px solid rgb(255, 255, 255);
+  transition: transform ease-in .2s ;  border-radius: 8px;
+}
+
+.account_card:hover {
+  transform: scale(1.03);
 }
 
 .account_card * {
@@ -469,12 +483,89 @@
 }
 
 
+/* creator account */
+.creator_section {
+  margin: 20px auto;
+  padding: 20px;
+  overflow: hidden;
+  color: black;
+  background-color: rgb(206, 209, 254);
+  background-image: linear-gradient(
+    to top,
+    #18affb,
+    #00bff9,
+    #00cced,
+    #00d8db,
+    #3ee1c6
+  );
+  background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+  border-radius: 8px;
+  border: 2px solid rgb(255, 255, 255);
+  transition: transform ease-in .2s ;
+}
+
+.creator_section:hover {
+  transform: scale(1.03);
+}
+
+.account_details {
+
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.wallet_details * {
+  margin: 5px;
+  overflow: hidden;
+  /* text-align: center; */
+}
+
+.wallet_details h2 {
+  font-size: 20px;
+}
+
+.wallet_details h3 {
+  font-size: 18px;
+}
+.wallet_details p {
+  font-size: 16px;
+}
+
+.address {
+  /* max-width: 120px; */
+}
+
+
+.creator_card * {
+  margin: 10px auto;
+}
+
+.creator_content {
+  text-align: center;
+  margin: 30px;
+}
+
+.creator_content * {
+  margin: 5px;
+}
+
 @media screen and ( max-width: 768px ) {
   .team_section {
     margin: auto;
   }
 
   .account_card {
-    max-width: 320px;
+    max-width: 330px;
+  }
+
+  .creator_section {
+    max-width: 330px;
+  }
+
+  .wallet_details {
+    text-align: center;
   }
 }

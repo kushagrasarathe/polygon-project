@@ -7,18 +7,6 @@ import profile from "../../src/assets/profile.png";
 export default function user() {
   return (
     <>
-      {/* <div className={styles.container}>
-        <h1 className={styles.section_heading}>User Account Details</h1>
-        <div className={styles.user_section}>
-          <div className={styles.profile_image}>
-            <Image src={profile} />
-          </div>
-          <h2>Wallet Address</h2>
-          <h4 className={styles.wallet_address}>0xA25c5bE1324764573dE0a14ABFe0279B4291adfA</h4>
-
-        </div>
-      </div> */}
-
       <div className={`${styles.container}`}>
         <h1 className={styles.section_heading}>User Account Details</h1>
         <div className={`${styles.user_section}`}>
