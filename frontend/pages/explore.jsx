@@ -38,26 +38,28 @@ export default function Explore() {
       console.log("Data fetched from Ceramic Successfuly 🚀🚀");
       console.log(data);
 
-      return(
-        <ProfileCard
-        image={data.pfp}
-        name={data.Name}
-        intro={data.bio} />
-      )
+      return <ProfileCard image={data.pfp} name={data.Name} intro={data.bio} />;
     } catch (err) {
       console.log(err);
     }
   };
 
   const fetchCreators = async () => {
-
-    //// we need to run a loop from 0 --- > id , that will fectch the data for every creator, fetchCreators is called in useEffect 
+    //// we need to run a loop from 0 --- > id , that will fectch the data for every creator, fetchCreators is called in useEffect
     // you just need to render all the data in seperate cards
-    
-    return(
-    )
+    // return(
+    // )
   };
-  const fetchNoId = async () => {};
+  const fetchNoId = async () => {
+    try {
+      console.log("fetching the Ids");
+      const id = await contract.id();
+      console.log(id);
+      SetNoId(id);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   useEffect(() => {
     fetchCreators();
