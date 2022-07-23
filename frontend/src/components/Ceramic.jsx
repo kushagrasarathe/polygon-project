@@ -33,7 +33,7 @@ export default function Ceramic() {
       {connection.status === "connected" ? (
         <a>{connection.selfID.id}</a>
       ) : (
-        <button className={styles.submit_btn} onClick={connectToSelfID}>
+        <button className={styles.ceramic_btn} onClick={connectToSelfID}>
           {" "}
           Connet to Ceramic{" "}
         </button>

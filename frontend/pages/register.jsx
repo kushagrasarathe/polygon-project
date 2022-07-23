@@ -137,11 +137,11 @@ export default function () {
   return (
     <>
       <div className={styles.container}>
-        <Ceramic />
         <h1 className={styles.section_heading}>Register</h1>
         <div className={styles.register_section}>
           <p>Please fill this form to register as creator.</p>
           <hr />
+          <Ceramic />
 
           <div>
             <div className={styles.register_label}>Profile Picture: </div>
