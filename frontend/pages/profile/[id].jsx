@@ -12,7 +12,7 @@ import {
   Creator_Contract_ABI,
   Creator_Contract_address,
 } from "../../utils/constants";
-import { useContract, useAccount, useProvider } from "wagmi";
+import { useContract, useProvider } from "wagmi";
 import { getRecord } from "../../src/components/ceramic";
 import { useState, useEffect } from "react";
 export default function Creator() {

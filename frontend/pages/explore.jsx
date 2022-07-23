@@ -5,8 +5,64 @@ import shouryam from "../src/assets/shouryam.jpg";
 import dhruv from "../src/assets/dhruv.jpg";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
+import {
+  Creator_Contract_ABI,
+  Creator_Contract_address,
+} from "../utils/constants";
+import { useContract, useProvider } from "wagmi";
+import { useContract, useProvider } from "wagmi";
+import { getRecord } from "../../src/components/ceramic";
+import { useState, useEffect } from "react";
 
 export default function Explore() {
+  const [noId, SetNoId] = useState(0);
+  const provider = useProvider();
+  const contract = useContract({
+    addressOrName: Creator_Contract_address,
+    contractInterface: Creator_Contract_ABI,
+    signerOrProvider: provider,
+  });
+
+  /// for every ID
+  const fetchCreator = async (id) => {
+    try {
+      const did = await contract.fetchDID(id);
+      await did.wait();
+      console.log(did);
+      // const address = await contract.fetchAddress(id);
+      // await address.wait();
+      // console.log(address);
+
+      console.log("Fetching Data from ceramic ...");
+      const data = await getRecord(did);
+      console.log("Data fetched from Ceramic Successfuly 🚀🚀");
+      console.log(data);
+
+      return(
+        <ProfileCard
+        image={data.pfp}
+        name={data.Name}
+        intro={data.bio} />
+      )
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const fetchCreators = async () => {
+
+    //// we need to run a loop from 0 --- > id , that will fectch the data for every creator, fetchCreators is called in useEffect 
+    // you just need to render all the data in seperate cards
+    
+    return(
+    )
+  };
+  const fetchNoId = async () => {};
+
+  useEffect(() => {
+    fetchCreators();
+  }, []);
+
   return (
     <>
       <div className={styles.container}>
