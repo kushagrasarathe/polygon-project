@@ -10,8 +10,8 @@ import {
   Creator_Contract_address,
 } from "../utils/constants";
 import { useContract, useProvider } from "wagmi";
-import { useContract, useProvider } from "wagmi";
-import { getRecord } from "../../src/components/ceramic";
+// import { useContract, useProvider } from "wagmi";
+import { getRecord } from "../src/components/ceramic";
 import { useState, useEffect } from "react";
 
 export default function Explore() {
@@ -50,6 +50,7 @@ export default function Explore() {
     // return(
     // )
   };
+
   const fetchNoId = async () => {
     try {
       console.log("fetching the Ids");

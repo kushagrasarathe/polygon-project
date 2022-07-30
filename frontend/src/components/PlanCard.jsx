@@ -25,21 +25,21 @@ export default function PlanCard(props) {
     <>
       <div className={` ${styles.plan_card}  ${styles.shadow} `}>
         <div className={`${styles.card_content}`}>
-          <h2>{plan.Name}</h2>
+          <h2>{props.name}</h2>
           <br />
           <div className={styles.card_img}>
             <Image src={props.img} alt="" />
           </div>
           <br />
-          <h3>{plan.frequency} month</h3>
-          <p>{plan.Amount} Matic</p>
+          <h3>{props.month}</h3>
+          <p>{props.amount}</p>
           <br />
           <div className={styles.plan_benefits}>
             <h4>Benefits</h4>
             {/* <ul> */}
-            <li>{plan.perks1}</li>
-            <li>l{plan.perks2}</li>
-            <li>l{plan.perks3}</li>
+            <li>{props.perks1}</li>
+            <li>{props.perks3}</li>
+            <li>{props.perks2}</li> 
             {/* </ul> */}
           </div>
           {/* <Button title={"Subscribe"} /> */}
