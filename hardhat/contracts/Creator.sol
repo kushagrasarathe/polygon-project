@@ -5,7 +5,9 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 interface NFT {
     function mint(address user, uint256 tokenId) external;
 
-    function balanceOf(address user, uint256 tokenId) external;
+    function balanceOf(address user, uint256 tokenId)
+        external
+        returns (uint256);
 }
 
 contract Creator is Ownable {
@@ -61,7 +63,7 @@ contract Creator is Ownable {
         delete creators[_id];
     }
 
-    /// @dev-  function to increase the balance of the creator according to the subsription
+    /// @dev function to increase the balance of the creator according to the subsription
     /// @param _id - id of the creator for whom the balance is to be increased
     /// @param _amount -  amount to be added to the balance
     /// @return _balance -  returns the current balance after increasing
@@ -74,7 +76,7 @@ contract Creator is Ownable {
         return creators[_id].balance;
     }
 
-    /// @dev-  function to deduct the balance of the creator according to the subsription
+    /// @dev  function to deduct the balance of the creator according to the subsription
     /// @param _id - id of the creator for whom the balance is to be changed
     /// @param _amount -  amount to be deducted to the balance
     /// @return _balance -  returns the current balance after decreasing
@@ -87,9 +89,9 @@ contract Creator is Ownable {
         return creators[_id].balance;
     }
 
-    /// @dev -  Adds subscriber to the creator details
+    /// @dev  function to add subscriber to the creator details
     /// @param _id - id of the creator
-    /// @return _subsrcibers - current subscribers of the creators
+    /// @return _subscribers - current subscribers of the creators
     function addSubscriber(uint256 _id)
         external
         returns (uint256 _subscribers)

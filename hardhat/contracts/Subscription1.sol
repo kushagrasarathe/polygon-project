@@ -56,7 +56,7 @@ contract SubscriptionPlan {
     mapping(address => mapping(uint256 => Subscription)) public subscriptions;
 
     // mapping from creator Id to array
-    mapping(uint256 => address[]) public subscribers ;
+    mapping(uint256 => address[]) public subscribers;
 
     // mapping(address => Plan) public planWithId;
 
@@ -152,7 +152,7 @@ contract SubscriptionPlan {
             block.timestamp,
             block.timestamp + _frequency
         );
-        subscribers.push(msg.sender);
+        subscribers[_creatorID].push(msg.sender);
         /// will mint the NFT right after the adding to subscriptions list
         nft.mint(msg.sender, _planId);
         emit subscriptionCreated(msg.sender, block.timestamp);
@@ -163,14 +163,12 @@ contract SubscriptionPlan {
     /// @param _planId - Id of the plan to be cancelled
     function cancel(uint256 _creatorID, uint256 _planId) external {
         address _creator = creator.fetchAddress(_creatorID);
-        Subscription storage subscription = subscriptions[msg.sender][_creatorID];
-        require(
-            ,
-            "This subscription does not exsist"
-        );
+        Subscription storage subscription = subscriptions[msg.sender][
+            _creatorID
+        ];
         require(subscription.planId == _planId, "Incorrect Plan Id");
         /// to delete any record , use delete
-        delete subscriptions[msg.sender][_creator];
+        delete subscriptions[msg.sender][_creatorID];
         emit subscriptionCancelled(msg.sender, block.timestamp);
     }
 
@@ -184,11 +182,13 @@ contract SubscriptionPlan {
         uint256 _planId
     ) external payable {
         address _creator = creator.fetchAddress(_creatorID);
-        Subscription storage subscription = subscriptions[subscriber][_creatorID];
-        require(
-            subscription.subscriber != address(0),
-            "This subscription does not exsist"
-        );
+        Subscription storage subscription = subscriptions[subscriber][
+            _creatorID
+        ];
+        // require(
+        //     subscription.subscriber != address(0),
+        //     "This subscription does not exsist"
+        // );
         require(block.timestamp > subscription.nextPayment, "Not due yet");
         Plan memory _plan = plans[_creator][_planId];
         uint256 amount = _plan.amount;
@@ -207,7 +207,8 @@ contract SubscriptionPlan {
         require(_amount > 0, "Amount is 0");
         ///update the balance here for the creator to 0
         creator.detuctBalance(_Id, _amount);
-        (bool success, ) = creator.call{value: _amount}("");
+        address _creator = creator.fetchAddress(_Id);
+        (bool success, ) = _creator.call{value: _amount}("");
         require(success, "Failed to send Ether");
         return success;
     }
@@ -227,23 +228,28 @@ contract SubscriptionPlan {
 
     /// @dev fetches the susbcriptions taken by a user according to the creator they have subscribed
     /// @param user - user address for whom the details are to be fetched
-    /// @param creator -  the creator address for whom they have subscribed for
+    /// @param _creatorId -  the creator address for whom they have subscribed for
     /// @return Subscription -  details of the subscription
-    function getSubscriptions(address user, address creator)
+    function getSubscriptions(address user, uint256 _creatorId)
         public
         view
         returns (Subscription memory)
     {
-        Subscription memory subscriptionsDone = subscriptions[user][creator];
+        Subscription memory subscriptionsDone = subscriptions[user][_creatorId];
         return subscriptionsDone;
     }
 
-    /// @dev - to fetch the subscribers array for the creator 
+    /// @dev - to fetch the subscribers array for the creator
     /// @param _id -  id of the creator for whom the address are needed
     /// @return _subscribers - The array of subscribers for the creator
-    function getSubscribers(uint256 _id) public view returns(address[]) {
+    function getSubscribers(uint256 _id)
+        public
+        view
+        returns (address[] memory)
+    {
         return subscribers[_id];
     }
+
     receive() external payable {}
 
     fallback() external payable {}

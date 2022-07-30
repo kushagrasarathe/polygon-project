@@ -8,12 +8,7 @@ import {
   Creator_Contract_ABI,
 } from "../utils/constants";
 import { useContract, useSigner, useProvider, useAccount } from "wagmi";
-import { SetViewer } from "../src/components/ceramic";
-import { useViewerConnection } from "@self.id/react";
-
-///  gives a button that makes a user join the ceramic
-import Ceramic from "../src/components/ceramic";
-
+import { StoreData } from "../src/components/StoreData";
 export default function () {
   const [isLoading, setIsLoading] = useState(false);
   /// to set the Content Uploaded
@@ -23,24 +18,14 @@ export default function () {
   const [pfp, setPfp] = useState([]);
   const [pfpIpfs, setPfpIpfs] = useState("");
 
+  // sets the user Data we want to store earlier
   const [name, setName] = useState("");
   const [title, setTitle] = useState("");
   const [bio, setBio] = useState("");
-  /// to set the DID for the user , extracted from the Ceramic contract
-  const [DID, setDID] = useState("");
+
+  const [ipfsData, setIpfsData] = useState("");
 
   const [id, setId] = useState(0);
-
-  const [connection] = useViewerConnection();
-
-  // const [fileUrl, updateFileUrl] = useState(``);
-  const setnewDID = async () => {
-    if (connection.status === "connected") {
-      setDID(connection.selfID.id);
-    } else {
-      console.log("error");
-    }
-  };
 
   const { address } = useAccount();
   const { data: signer } = useSigner();
@@ -63,7 +48,6 @@ export default function () {
         "Content uploaded to IPFS successfully 🚀🚀  with CID : ",
         hash
       );
-
       return true;
     } catch (error) {
       console.log("Error uploading file: ", error);
@@ -82,6 +66,7 @@ export default function () {
         "Profile uploaded to IPFS successfully 🚀🚀  with CID : ",
         hash
       );
+      updateData();
       return true;
     } catch (error) {
       console.log("Error uploading file: ", error);
@@ -89,11 +74,13 @@ export default function () {
   }
 
   // to update all the data to ceramic
-  const updateDID = async () => {
+  const updateData = async () => {
     try {
-      console.log("Updating data to the Ceramic");
-      SetViewer(name, bio, title, pfpIpfs, contentIpfs);
-      console.log("Data uploaded to the ceramic 🚀🚀");
+      console.log("Updating data to the IPFS");
+      const CID = StoreData(name, bio, title, pfpIpfs, pfp);
+      setIpfsData(`https://ipfs.io/ipfs/${CID}`);
+      console.log("Data uploaded 🚀🚀");
+      // addCreator();
       return true;
     } catch (err) {
       console.log(err);
@@ -104,12 +91,27 @@ export default function () {
   const addCreator = async () => {
     try {
       console.log("Adding the Creator Profile ... ");
-      const tx = await Creator_contract.addCreator(address, name, DID);
+      const tx = await Creator_contract.addCreator(address, ipfsData);
       await tx.wait();
       console.log(tx.hash);
       console.log(tx);
       setId(tx);
       console.log("Creator Added and Profile added Successfully🚀🚀");
+      addContent();
+      return true;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  /// function to add the creator to the contract with the details
+  const addContent = async () => {
+    try {
+      console.log("Adding the Content for the Creator... ");
+      const tx = await Content_contract.addCreator(id, contentIpfs);
+      await tx.wait();
+      console.log(tx.hash);
+      console.log("Content Added Successfully🚀🚀");
       return true;
     } catch (err) {
       console.log(err);
@@ -120,14 +122,9 @@ export default function () {
     try {
       setIsLoading(true);
       /// uploading content to the IPFS
-      // await uploadPfp();
+      await uploadPfp();
       // await uploadContent();
-      //  setting the DID
-      await setnewDID();
-      /// updating profile at ceramic and getting the DID
-      await updateDID();
-      /// finally minting the profile for the creator
-      // await addCreator();
+
       setIsLoading(false);
     } catch (err) {
       console.log(err);
@@ -141,8 +138,6 @@ export default function () {
         <div className={styles.register_section}>
           <p>Please fill this form to register as creator.</p>
           <hr />
-          <Ceramic />
-
           <div>
             <div className={styles.register_label}>Profile Picture: </div>
             <input
