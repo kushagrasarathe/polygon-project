@@ -1,4 +1,3 @@
-import React from "react";
 import { NFTPORT_API_KEY } from "../../constants";
 import { useEffect, useState } from "react";
 export const fetchNFTs = ({ userAddress, contractAddress }) => {

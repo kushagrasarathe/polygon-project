@@ -7,6 +7,7 @@ import { useAccount } from "wagmi";
 
 export default function creator() {
   const { address } = useAccount();
+
   return (
     <>
       <div className={`${styles.container}`}>

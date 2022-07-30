@@ -12,6 +12,8 @@ contract CrazeNFT is ERC1155Supply, Ownable {
     // 0 --> Silver NFT
     // 1 --> Gold NFT
     // 2 --> Platinum NFT
+    // 3 --> Creator NFT
+    // 4 --> User NFT
 
     event NFTminted(address user, uint256 tokenId);
     bool public _paused;
