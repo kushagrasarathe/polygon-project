@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import Button from "../src/components/Button";
 import Navbar from "../src/components/Navbar";
 import styles from "../styles/Home.module.css";
+import { ethers, utils } from "ethers";
 import { StoreContent } from "../src/components/StoreContent";
 import {
   Creator_Contract_address,
   Creator_Contract_ABI,
+  Content_ABI,
+  Content_Contract_address,
 } from "../utils/constants";
 import { useContract, useSigner, useProvider, useAccount } from "wagmi";
 import { StoreData } from "../src/components/StoreData";
@@ -36,23 +39,11 @@ export default function () {
     signerOrProvider: signer || provider,
   });
 
-  /// to upload the content to ipfs --- working
-  async function uploadContent() {
-    try {
-      console.log("Uploading Content to IPFS ... ");
-      console.log(content);
-      const CID = await StoreContent(content);
-      const hash = `https://ipfs.io/ipfs/${CID}`;
-      setContentIpfs(hash);
-      console.log(
-        "Content uploaded to IPFS successfully 🚀🚀  with CID : ",
-        hash
-      );
-      return true;
-    } catch (error) {
-      console.log("Error uploading file: ", error);
-    }
-  }
+  const Content_contract = useContract({
+    addressOrName: Content_Contract_address,
+    contractInterface: Content_ABI,
+    signerOrProvider: signer || provider,
+  });
 
   /// to upload the pfp to the ipfs and get a hash --- working
   async function uploadPfp() {
@@ -77,10 +68,12 @@ export default function () {
   const updateData = async (Name, Bio, Title, PfpIpfs, Pfp) => {
     try {
       console.log("Updating data to the IPFS");
-      const CID = StoreData(Name, Bio, Title, PfpIpfs, Pfp);
-      setIpfsData(`https://ipfs.io/ipfs/${CID}`);
+      const CID = await StoreData(Name, Bio, Title, PfpIpfs, Pfp);
+      const hash = `https://ipfs.io/ipfs/${CID}`;
+      setIpfsData(hash);
+      console.log(hash);
       console.log("Data uploaded 🚀🚀");
-      // addCreator();
+      setTimeout(addCreator(address, hash), 5000);
       return true;
     } catch (err) {
       console.log(err);
@@ -88,29 +81,52 @@ export default function () {
   };
 
   /// function to add the creator to the contract with the details
-  const addCreator = async () => {
+  const addCreator = async (Address, IPFSdata) => {
     try {
       console.log("Adding the Creator Profile ... ");
-      const tx = await Creator_contract.addCreator(address, ipfsData);
+      const tx = await Creator_contract.addCreator(Address, IPFSdata);
       await tx.wait();
       console.log(tx.hash);
       console.log(tx);
-      setId(tx);
+      const ID = parseInt(tx.value._hex);
+      console.log(ID);
+      setId(ID);
       console.log("Creator Added and Profile added Successfully🚀🚀");
-      addContent();
+      uploadContent();
       return true;
     } catch (err) {
       console.log(err);
     }
   };
+
+  /// to upload the content to ipfs --- working
+  async function uploadContent() {
+    try {
+      console.log("Uploading Content to IPFS ... ");
+      console.log(content);
+      const CID = await StoreContent(content);
+      const hash = `https://ipfs.io/ipfs/${CID}`;
+      setContentIpfs(hash);
+      console.log(
+        "Content uploaded to IPFS successfully 🚀🚀  with CID : ",
+        hash
+      );
+      addContent(id, hash);
+      return true;
+    } catch (error) {
+      console.log("Error uploading file: ", error);
+    }
+  }
 
   /// function to add the creator to the contract with the details
   const addContent = async () => {
     try {
+      console.log(id);
       console.log("Adding the Content for the Creator... ");
-      const tx = await Content_contract.addCreator(id, contentIpfs);
+      const tx = await Content_contract.addContent(0, contentIpfs);
       await tx.wait();
       console.log(tx.hash);
+      console.log(tx);
       console.log("Content Added Successfully🚀🚀");
       return true;
     } catch (err) {
@@ -121,10 +137,13 @@ export default function () {
   const handleSubmit = async () => {
     try {
       setIsLoading(true);
-      /// uploading content to the IPFS
+      /// uploading pfp to the IPFS
       await uploadPfp();
       // await uploadContent();
-
+      /// Uploading the updated data to IPFS
+      ///  Add creator to the Contract
+      /// Upload Content to IPFS
+      /// Addcontent to the Contract
       setIsLoading(false);
     } catch (err) {
       console.log(err);
