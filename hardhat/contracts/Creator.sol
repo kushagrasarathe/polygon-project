@@ -10,7 +10,7 @@ interface NFT {
         returns (uint256);
 }
 
-contract Creator is Ownable {
+contract Creators is Ownable {
     NFT nft;
 
     struct creator {
@@ -87,6 +87,17 @@ contract Creator is Ownable {
         require(nft.balanceOf(msg.sender, 3) > 0, "You are not a creator");
         creators[_id].balance -= _amount;
         return creators[_id].balance;
+    }
+
+    function changeData(uint256 _id, string memory _cid) public {
+        require(nft.balanceOf(msg.sender, 3) > 0, "You are not a creator");
+        // require(_cid != 0, "new CID is not correct");
+        creators[_id].userData = _cid;
+    }
+
+    function changeAddress(uint256 _id, address _address) public {
+        require(nft.balanceOf(msg.sender, 3) > 0, "You are not a creator");
+        creators[_id].creatorAddress = _address;
     }
 
     /// @dev  function to add subscriber to the creator details

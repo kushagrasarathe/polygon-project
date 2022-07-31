@@ -66,7 +66,7 @@ export default function () {
         "Profile uploaded to IPFS successfully 🚀🚀  with CID : ",
         hash
       );
-      updateData();
+      updateData(name, bio, title, hash, pfp);
       return true;
     } catch (error) {
       console.log("Error uploading file: ", error);
@@ -74,10 +74,10 @@ export default function () {
   }
 
   // to update all the data to ceramic
-  const updateData = async () => {
+  const updateData = async (Name, Bio, Title, PfpIpfs, Pfp) => {
     try {
       console.log("Updating data to the IPFS");
-      const CID = StoreData(name, bio, title, pfpIpfs, pfp);
+      const CID = StoreData(Name, Bio, Title, PfpIpfs, Pfp);
       setIpfsData(`https://ipfs.io/ipfs/${CID}`);
       console.log("Data uploaded 🚀🚀");
       // addCreator();

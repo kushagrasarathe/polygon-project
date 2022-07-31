@@ -30,9 +30,595 @@ export const PlatinumPLan = {
 
 export const Owner_address = "0xe22eCBbA8fB9C0124eeCb6AfE0bf6A487424989f";
 
+export const Content_Contract_address =
+  "0x99FBB7e6F8789AE2eca6a07bcfC2e94f1D2376cA";
+export const Content_ABI = [
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "_id",
+        type: "uint256",
+      },
+      {
+        indexed: false,
+        internalType: "string",
+        name: "_cid",
+        type: "string",
+      },
+    ],
+    name: "ContentAdded",
+    type: "event",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_creatorId",
+        type: "uint256",
+      },
+      {
+        internalType: "string",
+        name: "_CID",
+        type: "string",
+      },
+    ],
+    name: "addContent",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_creatorID",
+        type: "uint256",
+      },
+    ],
+    name: "getContent",
+    outputs: [
+      {
+        internalType: "string[]",
+        name: "CID",
+        type: "string[]",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+];
+
+export const NFT_Address = "0xFFbF06f950De26fCa1175B82C122f4B9f27346E5";
+export const NFT_ABI = [
+  {
+    inputs: [
+      {
+        internalType: "string",
+        name: "baseURI",
+        type: "string",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "constructor",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "operator",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "bool",
+        name: "approved",
+        type: "bool",
+      },
+    ],
+    name: "ApprovalForAll",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "address",
+        name: "user",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256",
+      },
+    ],
+    name: "NFTminted",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "previousOwner",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "newOwner",
+        type: "address",
+      },
+    ],
+    name: "OwnershipTransferred",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "operator",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "from",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "to",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "uint256[]",
+        name: "ids",
+        type: "uint256[]",
+      },
+      {
+        indexed: false,
+        internalType: "uint256[]",
+        name: "values",
+        type: "uint256[]",
+      },
+    ],
+    name: "TransferBatch",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "operator",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "from",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "to",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "id",
+        type: "uint256",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "value",
+        type: "uint256",
+      },
+    ],
+    name: "TransferSingle",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "string",
+        name: "value",
+        type: "string",
+      },
+      {
+        indexed: true,
+        internalType: "uint256",
+        name: "id",
+        type: "uint256",
+      },
+    ],
+    name: "URI",
+    type: "event",
+  },
+  {
+    stateMutability: "payable",
+    type: "fallback",
+  },
+  {
+    inputs: [],
+    name: "_paused",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "id",
+        type: "uint256",
+      },
+    ],
+    name: "balanceOf",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address[]",
+        name: "accounts",
+        type: "address[]",
+      },
+      {
+        internalType: "uint256[]",
+        name: "ids",
+        type: "uint256[]",
+      },
+    ],
+    name: "balanceOfBatch",
+    outputs: [
+      {
+        internalType: "uint256[]",
+        name: "",
+        type: "uint256[]",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "id",
+        type: "uint256",
+      },
+    ],
+    name: "exists",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "operator",
+        type: "address",
+      },
+    ],
+    name: "isApprovedForAll",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "user",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256",
+      },
+    ],
+    name: "mint",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "owner",
+    outputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "renounceOwnership",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "from",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "to",
+        type: "address",
+      },
+      {
+        internalType: "uint256[]",
+        name: "ids",
+        type: "uint256[]",
+      },
+      {
+        internalType: "uint256[]",
+        name: "amounts",
+        type: "uint256[]",
+      },
+      {
+        internalType: "bytes",
+        name: "data",
+        type: "bytes",
+      },
+    ],
+    name: "safeBatchTransferFrom",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "from",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "to",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "id",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+      {
+        internalType: "bytes",
+        name: "data",
+        type: "bytes",
+      },
+    ],
+    name: "safeTransferFrom",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "operator",
+        type: "address",
+      },
+      {
+        internalType: "bool",
+        name: "approved",
+        type: "bool",
+      },
+    ],
+    name: "setApprovalForAll",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "bool",
+        name: "val",
+        type: "bool",
+      },
+    ],
+    name: "setPaused",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "string",
+        name: "newuri",
+        type: "string",
+      },
+    ],
+    name: "setURI",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "bytes4",
+        name: "interfaceId",
+        type: "bytes4",
+      },
+    ],
+    name: "supportsInterface",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "id",
+        type: "uint256",
+      },
+    ],
+    name: "totalSupply",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "newOwner",
+        type: "address",
+      },
+    ],
+    name: "transferOwnership",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_tokenId",
+        type: "uint256",
+      },
+    ],
+    name: "uri",
+    outputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "payee",
+        type: "address",
+      },
+    ],
+    name: "withdraw",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    stateMutability: "payable",
+    type: "receive",
+  },
+];
+
 export const Creator_Contract_address =
-  "0x86F8cc96dD0dBB478A24125168B3DC7C5368B549";
+  "0xdbCEB130F4e80d828AF356ddF9F97B07BFd4B29E";
 export const Creator_Contract_ABI = [
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_NFTcontract",
+        type: "address",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "constructor",
+  },
   {
     anonymous: false,
     inputs: [
@@ -70,13 +656,7 @@ export const Creator_Contract_ABI = [
       {
         indexed: false,
         internalType: "string",
-        name: "name",
-        type: "string",
-      },
-      {
-        indexed: false,
-        internalType: "string",
-        name: "ceramicId",
+        name: "user",
         type: "string",
       },
     ],
@@ -92,12 +672,7 @@ export const Creator_Contract_ABI = [
       },
       {
         internalType: "string",
-        name: "name",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "ceramicDID",
+        name: "_userData",
         type: "string",
       },
     ],
@@ -105,7 +680,86 @@ export const Creator_Contract_ABI = [
     outputs: [
       {
         internalType: "uint256",
-        name: "",
+        name: "_id",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_id",
+        type: "uint256",
+      },
+    ],
+    name: "addSubscriber",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "_subscribers",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_id",
+        type: "uint256",
+      },
+      {
+        internalType: "address",
+        name: "_address",
+        type: "address",
+      },
+    ],
+    name: "changeAddress",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_id",
+        type: "uint256",
+      },
+      {
+        internalType: "string",
+        name: "_cid",
+        type: "string",
+      },
+    ],
+    name: "changeData",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_id",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "_amount",
+        type: "uint256",
+      },
+    ],
+    name: "detuctBalance",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "_balance",
         type: "uint256",
       },
     ],
@@ -139,29 +793,12 @@ export const Creator_Contract_ABI = [
         type: "uint256",
       },
     ],
-    name: "fetchCreators",
+    name: "fetchBalance",
     outputs: [
       {
-        components: [
-          {
-            internalType: "address",
-            name: "creatorAddress",
-            type: "address",
-          },
-          {
-            internalType: "string",
-            name: "name",
-            type: "string",
-          },
-          {
-            internalType: "string",
-            name: "ceramicDID",
-            type: "string",
-          },
-        ],
-        internalType: "struct Creator.creator",
+        internalType: "uint256",
         name: "",
-        type: "tuple",
+        type: "uint256",
       },
     ],
     stateMutability: "view",
@@ -175,12 +812,53 @@ export const Creator_Contract_ABI = [
         type: "uint256",
       },
     ],
-    name: "fetchDID",
+    name: "fetchCID",
     outputs: [
       {
         internalType: "string",
         name: "",
         type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_id",
+        type: "uint256",
+      },
+    ],
+    name: "fetchCreators",
+    outputs: [
+      {
+        components: [
+          {
+            internalType: "address",
+            name: "creatorAddress",
+            type: "address",
+          },
+          {
+            internalType: "string",
+            name: "userData",
+            type: "string",
+          },
+          {
+            internalType: "uint256",
+            name: "balance",
+            type: "uint256",
+          },
+          {
+            internalType: "uint256",
+            name: "subscribers",
+            type: "uint256",
+          },
+        ],
+        internalType: "struct Creators.creator",
+        name: "",
+        type: "tuple",
       },
     ],
     stateMutability: "view",
@@ -235,14 +913,18 @@ export const Creator_Contract_ABI = [
 ];
 
 export const Subscription_Contract_Address =
-  "0x92ce05f2f354f6a047a9202F60A1F61311c04169";
-
+  "0x53FE62421800879B0f86bff4BC022667124d02F6";
 export const Subscription_Contract_ABI = [
   {
     inputs: [
       {
         internalType: "address",
         name: "nftContract",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "creatorContract",
         type: "address",
       },
     ],
@@ -325,28 +1007,9 @@ export const Subscription_Contract_ABI = [
   {
     inputs: [
       {
-        internalType: "address",
-        name: "_creator",
-        type: "address",
-      },
-    ],
-    name: "addCreator",
-    outputs: [
-      {
         internalType: "uint256",
-        name: "_id",
+        name: "_creatorID",
         type: "uint256",
-      },
-    ],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_creator",
-        type: "address",
       },
       {
         internalType: "uint256",
@@ -357,25 +1020,6 @@ export const Subscription_Contract_ABI = [
     name: "cancel",
     outputs: [],
     stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_creator",
-        type: "address",
-      },
-    ],
-    name: "checkBalance",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "_balance",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
     type: "function",
   },
   {
@@ -424,11 +1068,6 @@ export const Subscription_Contract_ABI = [
       {
         components: [
           {
-            internalType: "address",
-            name: "creator",
-            type: "address",
-          },
-          {
             internalType: "uint256",
             name: "amount",
             type: "uint256",
@@ -450,25 +1089,39 @@ export const Subscription_Contract_ABI = [
   {
     inputs: [
       {
+        internalType: "uint256",
+        name: "_id",
+        type: "uint256",
+      },
+    ],
+    name: "getSubscribers",
+    outputs: [
+      {
+        internalType: "address[]",
+        name: "",
+        type: "address[]",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
         internalType: "address",
         name: "user",
         type: "address",
       },
       {
-        internalType: "address",
-        name: "creator",
-        type: "address",
+        internalType: "uint256",
+        name: "_creatorId",
+        type: "uint256",
       },
     ],
     name: "getSubscriptions",
     outputs: [
       {
         components: [
-          {
-            internalType: "address",
-            name: "subscriber",
-            type: "address",
-          },
           {
             internalType: "uint256",
             name: "planId",
@@ -514,9 +1167,9 @@ export const Subscription_Contract_ABI = [
         type: "address",
       },
       {
-        internalType: "address",
-        name: "_creator",
-        type: "address",
+        internalType: "uint256",
+        name: "_creatorID",
+        type: "uint256",
       },
       {
         internalType: "uint256",
@@ -545,11 +1198,6 @@ export const Subscription_Contract_ABI = [
     name: "plans",
     outputs: [
       {
-        internalType: "address",
-        name: "creator",
-        type: "address",
-      },
-      {
         internalType: "uint256",
         name: "amount",
         type: "uint256",
@@ -566,9 +1214,9 @@ export const Subscription_Contract_ABI = [
   {
     inputs: [
       {
-        internalType: "address",
-        name: "_creator",
-        type: "address",
+        internalType: "uint256",
+        name: "_creatorID",
+        type: "uint256",
       },
       {
         internalType: "uint256",
@@ -584,23 +1232,42 @@ export const Subscription_Contract_ABI = [
   {
     inputs: [
       {
-        internalType: "address",
+        internalType: "uint256",
         name: "",
-        type: "address",
+        type: "uint256",
       },
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    name: "subscribers",
+    outputs: [
       {
         internalType: "address",
         name: "",
         type: "address",
       },
     ],
-    name: "subscriptions",
-    outputs: [
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
       {
         internalType: "address",
-        name: "subscriber",
+        name: "",
         type: "address",
       },
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    name: "subscriptions",
+    outputs: [
       {
         internalType: "uint256",
         name: "planId",
@@ -623,13 +1290,8 @@ export const Subscription_Contract_ABI = [
   {
     inputs: [
       {
-        internalType: "address",
-        name: "creator",
-        type: "address",
-      },
-      {
         internalType: "uint256",
-        name: "creatorId",
+        name: "_Id",
         type: "uint256",
       },
     ],

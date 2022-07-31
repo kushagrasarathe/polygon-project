@@ -17,7 +17,7 @@ export const StoreData = async (Name, Bio, Title, Pfp) => {
     title: Title,
   };
   const client = makeStorageClient();
-  const cid = await client.put(data);
+  const cid = await client.put([data]);
   console.log("stored files with cid:", cid);
   setTimeout(3000);
   return cid;

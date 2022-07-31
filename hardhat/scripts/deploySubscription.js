@@ -1,9 +1,10 @@
 const hre = require("hardhat");
 
 async function main() {
-  const NFTaddress = "0xfAB685ca8e509c4673d0704807bC3206c1a209d1";
+  const NFTaddress = "0xFFbF06f950De26fCa1175B82C122f4B9f27346E5";
+  const CreatorAddress = "0xdbCEB130F4e80d828AF356ddF9F97B07BFd4B29E";
   const Subscription = await hre.ethers.getContractFactory("SubscriptionPlan");
-  const subscription = await Subscription.deploy(NFTaddress);
+  const subscription = await Subscription.deploy(NFTaddress, CreatorAddress);
 
   await subscription.deployed();
 
