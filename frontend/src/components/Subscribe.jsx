@@ -11,43 +11,41 @@ import { ethers } from "ethers";
 import styles from "./Button.module.css";
 import { useState } from "react";
 
-/// A Simple Subscribe Button component , which takes the Plan Id and the creator address from where it is placed , give a Button that will subscribe for the plan and Creator Chosen
+/// A Simple Subscribe Button component , which takes the Plan Id and the creator Id from where it is placed , give a Button that will subscribe for the plan and Creator Chosen
 const Subscribe = (props) => {
   // const [amount, setAmount] = useState("");
   const [planId, setPlanId] = useState(0);
-  const [creatorAddress, setCreatorAddress] = useState("");
+  const [creatorId, setCreatorId] = useState("");
 
   const provider = useProvider();
   const { data: signer } = useSigner();
   const { address, isConnected } = useAccount;
-  const contract = useContract({
+
+  const Subscription_contract = useContract({
     addressOrName: Subscription_Contract_Address,
     contractInterface: Subscription_Contract_ABI,
     signerOrProvider: signer || provider,
   });
   const subscribe = async () => {
     console.log(
-      `Subscribing to the creator: ${creatorAddress} for the planId :${planId} \n`
+      `Subscribing to the creator: ${creatorId} for the planId :${planId} \n`
     );
     console.log("Intiating the Transaction 🔥🔥");
     if (planId == 0) {
-      const tx = await contract.subscribe(creatorAddress, planId, {
+      const tx = await Subscription_contract.subscribe(creatorId, planId, {
         value: ethers.utils.parseEther("0.2"),
       });
       await tx.wait();
-      // setAmount(ethers.utils.parseEther("0.2"));
     } else if (planId == 1) {
-      const tx = await contract.subscribe(creatorAddress, planId, {
+      const tx = await Subscription_contract.subscribe(creatorId, planId, {
         value: ethers.utils.parseEther("0.5"),
       });
       await tx.wait();
-      // setAmount(ethers.utils.parseEther("0.5"));
     } else if (planId == 2) {
-      const tx = await contract.subscribe(creatorAddress, planId, {
+      const tx = await Subscription_contract.subscribe(creatorId, planId, {
         value: ethers.utils.parseEther("1"),
       });
       await tx.wait();
-      // setAmount(ethers.utils.parseEther("1"));
     } else {
       console.log("Choose a Correct Plan");
       return false;
@@ -61,7 +59,7 @@ const Subscribe = (props) => {
 
   useEffect(() => {
     setPlanId(props.planId);
-    setCreatorAddress(props.creatorAddress);
+    setCreatorId(props.creatorId);
   });
 
   return (

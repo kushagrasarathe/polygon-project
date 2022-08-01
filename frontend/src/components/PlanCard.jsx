@@ -39,14 +39,11 @@ export default function PlanCard(props) {
             {/* <ul> */}
             <li>{props.perks1}</li>
             <li>{props.perks3}</li>
-            <li>{props.perks2}</li> 
+            <li>{props.perks2}</li>
             {/* </ul> */}
           </div>
           {/* <Button title={"Subscribe"} /> */}
-          <Subscribe
-            planId={props.planId}
-            creatorAddress={props.creatorAddress}
-          />
+          <Subscribe planId={props.planId} creatorId={props.creatorId} />
         </div>
       </div>
     </>
